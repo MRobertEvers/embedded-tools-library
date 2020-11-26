@@ -1,34 +1,41 @@
 #pragma once
-
 #include "IQueue.h"
 
-template <typename T, size_t Size>
+#include <array>
+
+template <typename T>
 class TQueue : public IQueue<T>
 {
 public:
+   TQueue(T* buffer, int size) 
+      : m_pBuf(buffer), m_size(size)
+   {
+   };
+
    bool push(const T& item) override;
    T pop() override;
 
    size_t capacity() override
    {
-      return Size;
+      return m_size;
    }
 
    size_t count() override;
 private:
-   T m_pBuf[Size];
+   T* m_pBuf;
+   int m_size = 0;
    int m_head = 0;
    int m_tail = 0;
    bool m_isFull = false;
 };
 
-template<typename T, size_t Size>
-bool TQueue<T, Size>::push(const T& item)
+template<typename T>
+bool TQueue<T>::push(const T& item)
 {
    if( !m_isFull )
    {
       m_pBuf[m_head] = item;
-      m_head = (m_head + 1) % Size;
+      m_head = (m_head + 1) % m_size;
       m_isFull = m_head == m_tail;
 
       return true;
@@ -37,8 +44,8 @@ bool TQueue<T, Size>::push(const T& item)
    return false;
 }
 
-template<typename T, size_t Size>
-T TQueue<T, Size>::pop()
+template<typename T>
+T TQueue<T>::pop()
 {
    auto item = m_pBuf[m_tail];
 
@@ -46,21 +53,21 @@ T TQueue<T, Size>::pop()
    {
       m_isFull = false;
 
-      m_tail = (m_tail + 1) % Size;
+      m_tail = (m_tail + 1) % m_size;
    }
 
    return item;
 }
 
-template<typename T, size_t Size>
-inline size_t TQueue<T, Size>::count()
+template<typename T>
+inline size_t TQueue<T>::count()
 {
    if( m_head >= m_tail )
    {
-      return m_isFull ? Size : (m_head - m_tail);
+      return m_isFull ? m_size : (m_head - m_tail);
    }
    else
    {
-      return Size - (m_tail - m_head);
+      return m_size - (m_tail - m_head);
    }
 }

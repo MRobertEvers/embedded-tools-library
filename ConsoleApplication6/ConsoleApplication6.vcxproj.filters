@@ -25,78 +25,60 @@
     <Filter Include="Source Files\Queue">
       <UniqueIdentifier>{1ba13882-37fb-4422-b283-2694589b6b50}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\ActorQueue">
+      <UniqueIdentifier>{c9982992-4ad5-4d2c-a673-139adf78bca7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ActorQueue">
+      <UniqueIdentifier>{48ac3614-0758-4bc3-bb03-a70dd1e98a35}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ConsoleApplication6.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TPool.cpp">
-      <Filter>Source Files\Pool</Filter>
-    </ClCompile>
-    <ClCompile Include="TBufferProxy.cpp">
-      <Filter>Source Files\Pool</Filter>
-    </ClCompile>
-    <ClCompile Include="TPoolBuffer.cpp">
-      <Filter>Source Files\Pool</Filter>
-    </ClCompile>
-    <ClCompile Include="TPoolObjectHandle.cpp">
-      <Filter>Source Files\Pool</Filter>
-    </ClCompile>
-    <ClCompile Include="IPoolResource.cpp">
-      <Filter>Source Files\Pool</Filter>
-    </ClCompile>
-    <ClCompile Include="IQueue.cpp">
-      <Filter>Source Files\Queue</Filter>
-    </ClCompile>
-    <ClCompile Include="TQueue.cpp">
-      <Filter>Source Files\Queue</Filter>
-    </ClCompile>
     <ClCompile Include="IMessage.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Actor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="TMessage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MessagePool.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="WindowsQueue.cpp">
+      <Filter>Source Files\ActorQueue</Filter>
+    </ClCompile>
+    <ClCompile Include="IActorQueue.cpp">
+      <Filter>Source Files\ActorQueue</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="IPoolResource.h">
-      <Filter>Header Files\Pool</Filter>
-    </ClInclude>
-    <ClInclude Include="TBufferProxy.h">
-      <Filter>Header Files\Pool</Filter>
-    </ClInclude>
-    <ClInclude Include="TPoolBuffer.h">
-      <Filter>Header Files\Pool</Filter>
-    </ClInclude>
-    <ClInclude Include="TPoolObjectHandle.h">
-      <Filter>Header Files\Pool</Filter>
-    </ClInclude>
-    <ClInclude Include="TPool.h">
-      <Filter>Header Files\Pool</Filter>
-    </ClInclude>
     <ClInclude Include="IQueue.h">
-      <Filter>Header Files\Queue</Filter>
-    </ClInclude>
-    <ClInclude Include="TQueue.h">
       <Filter>Header Files\Queue</Filter>
     </ClInclude>
     <ClInclude Include="IMessage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Actor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="TMessage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MessagePool.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="WindowsQueue.h">
+      <Filter>Header Files\ActorQueue</Filter>
+    </ClInclude>
+    <ClInclude Include="IActorQueue.h">
+      <Filter>Header Files\ActorQueue</Filter>
+    </ClInclude>
+    <ClInclude Include="TStaticPoolBuffer.h">
+      <Filter>Header Files\Pool</Filter>
+    </ClInclude>
+    <ClInclude Include="IPool.h">
+      <Filter>Header Files\Pool</Filter>
+    </ClInclude>
+    <ClInclude Include="TStaticQueue.h">
+      <Filter>Header Files\Queue</Filter>
+    </ClInclude>
+    <ClInclude Include="TQueue.h">
+      <Filter>Header Files\Queue</Filter>
+    </ClInclude>
+    <ClInclude Include="TPool.h">
+      <Filter>Header Files\Pool</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

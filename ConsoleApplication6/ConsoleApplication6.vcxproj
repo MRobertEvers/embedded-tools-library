@@ -140,31 +140,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Actor.cpp" />
     <ClCompile Include="ConsoleApplication6.cpp" />
+    <ClCompile Include="IActorQueue.cpp" />
     <ClCompile Include="IMessage.cpp" />
-    <ClCompile Include="IPoolResource.cpp" />
-    <ClCompile Include="IQueue.cpp" />
-    <ClCompile Include="MessagePool.cpp" />
     <ClCompile Include="TMessage.cpp" />
-    <ClCompile Include="TPool.cpp" />
-    <ClCompile Include="TBufferProxy.cpp" />
-    <ClCompile Include="TPoolBuffer.cpp" />
-    <ClCompile Include="TPoolObjectHandle.cpp" />
-    <ClCompile Include="TQueue.cpp" />
+    <ClCompile Include="WindowsQueue.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Actor.h" />
+    <ClInclude Include="IActorQueue.h" />
     <ClInclude Include="IMessage.h" />
-    <ClInclude Include="IPoolResource.h" />
+    <ClInclude Include="IPool.h" />
     <ClInclude Include="IQueue.h" />
-    <ClInclude Include="MessagePool.h" />
     <ClInclude Include="TMessage.h" />
     <ClInclude Include="TPool.h" />
-    <ClInclude Include="TBufferProxy.h" />
-    <ClInclude Include="TPoolBuffer.h" />
-    <ClInclude Include="TPoolObjectHandle.h" />
     <ClInclude Include="TQueue.h" />
+    <ClInclude Include="TStaticPoolBuffer.h" />
+    <ClInclude Include="TStaticQueue.h" />
+    <ClInclude Include="WindowsQueue.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -4,56 +4,33 @@
 #include <iostream>
 
 #include "TPool.h"
-#include "TQueue.h"
-#include "TBufferProxy.h"
+#include "TStaticQueue.h"
 #include "TMessage.h"
+#include "IMessage.h"
 
+#include <iostream>
 #include <array>
-
-void test_q()
-{
-
-   TQueue<int, 5> tmp;
-
-   for( int i = 0; i < 5; i++ )
-   {
-      tmp.push(i);
-   }
-
-   std::cout << tmp.pop();
-   tmp.push(9);
-   std::cout << tmp.pop();
-
-   std::cout << tmp.pop();
-   std::cout << tmp.pop();
-   std::cout << tmp.pop();
-   std::cout << tmp.pop();
-}
 
 
 int main()
 {
-   TQueue<int, 120u> q;
+   std::array<int, 120u> q;
    std::array<int, 120u> buf;
-   Pool::Resource::TBufferProxy<int> resource(&buf, &q);
-   Pool::TPool<int> pool(&resource);
+   Pool::TPool<int> pool(&buf, &q);
 
-   auto myInt = pool.get();
-   *myInt.operator->() = 5;
+   auto myInt = pool.acquire();
+   *myInt = 5;
 
     std::cout << "Hello World!\n";
     std::cout << buf[0];
 
-    Actor::TMessage<4> msg;
-
-    msg.construct<int>();
-
-    TQueue<int, 120u> messageQ;
+    std::array<int, 120u> messageQ;
     std::array<Actor::TMessage<32>, 120u> messageBuf;
-    Pool::Resource::TBufferProxy<Actor::TMessage<32>> messagePoolResource(&messageBuf, &messageQ);
-    Pool::TPool<Actor::TMessage<32>> messagePool(&messagePoolResource);
+    Pool::TPool<Actor::TMessage<32>> messagePool(&messageBuf, &messageQ);
 
-    auto r = messagePool.get();
+    //Actor::MessageHandle r = messagePool.get();
+    
+    
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
