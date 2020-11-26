@@ -1,8 +1,4 @@
 #pragma once
-#pragma once
-
-#include "IQueue.h"
-#include "TQueue.h"
 
 #include <array>
 

@@ -31,6 +31,9 @@
     <Filter Include="Source Files\ActorQueue">
       <UniqueIdentifier>{48ac3614-0758-4bc3-bb03-a70dd1e98a35}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Pool\Managed">
+      <UniqueIdentifier>{046595f1-1b08-4a0f-957a-545015ec213f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ConsoleApplication6.cpp">
@@ -47,6 +50,9 @@
     </ClCompile>
     <ClCompile Include="IActorQueue.cpp">
       <Filter>Source Files\ActorQueue</Filter>
+    </ClCompile>
+    <ClCompile Include="TManagedObject.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -68,17 +74,32 @@
     <ClInclude Include="TStaticPoolBuffer.h">
       <Filter>Header Files\Pool</Filter>
     </ClInclude>
-    <ClInclude Include="IPool.h">
-      <Filter>Header Files\Pool</Filter>
-    </ClInclude>
     <ClInclude Include="TStaticQueue.h">
       <Filter>Header Files\Queue</Filter>
     </ClInclude>
     <ClInclude Include="TQueue.h">
       <Filter>Header Files\Queue</Filter>
     </ClInclude>
-    <ClInclude Include="TPool.h">
+    <ClInclude Include="IPool.h">
       <Filter>Header Files\Pool</Filter>
+    </ClInclude>
+    <ClInclude Include="IRefCountedControlBlock.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TContinuousPool.h">
+      <Filter>Header Files\Pool</Filter>
+    </ClInclude>
+    <ClInclude Include="TManagedObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TManagedContinuousPool.h">
+      <Filter>Header Files\Pool\Managed</Filter>
+    </ClInclude>
+    <ClInclude Include="ControlBlock.h">
+      <Filter>Header Files\Pool\Managed</Filter>
+    </ClInclude>
+    <ClInclude Include="TManaged.h">
+      <Filter>Header Files\Pool\Managed</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
