@@ -3,18 +3,18 @@
 #include "IQueue.h"
 #include "TQueue.h"
 #include "IPool.h"
-#include "TContinuousPoolBuffer.h"
+#include "TContiguousPoolBuffer.h"
 
 #include <array>
 
 namespace Pool
 {
 template <typename T>
-class TContinuousPool : public IPool<T>
+class TContiguousPool : public IPool<T>
 {
 public:
    template <size_t Size>
-   TContinuousPool(std::array<T, Size>* buffer, std::array<int, Size>* control)
+   TContiguousPool(std::array<T, Size>* buffer, std::array<int, Size>* control)
       : m_pBuf(buffer->data()), m_q(control->data(), Size)
    {
       for( int i = 0; i < Size; i++ )
@@ -24,8 +24,8 @@ public:
    };
 
    template <size_t Size>
-   TContinuousPool(Resource::TContinuousPoolBuffer<T, Size>* resource)
-      : TContinuousPool(resource->buffer, resource->control)
+   TContiguousPool(Resource::TContiguousPoolBuffer<T, Size>* resource)
+      : TContiguousPool(resource->buffer, resource->control)
    {
    };
 
@@ -52,7 +52,7 @@ private:
 };
 
 template<typename T>
-inline T* TContinuousPool<T>::acquire()
+inline T* TContiguousPool<T>::acquire()
 {
    auto next = getNextAvailable();
    if( next == -1 )
@@ -66,13 +66,13 @@ inline T* TContinuousPool<T>::acquire()
 }
 
 template<typename T>
-inline void TContinuousPool<T>::release(T const* item)
+inline void TContiguousPool<T>::release(T const* item)
 {
    m_q.push(getItemIndex(item));
 }
 
 template<typename T>
-inline int TContinuousPool<T>::getNextAvailable()
+inline int TContiguousPool<T>::getNextAvailable()
 {
    if( m_q.count() == 0 )
    {
@@ -85,7 +85,7 @@ inline int TContinuousPool<T>::getNextAvailable()
 }
 
 template<typename T>
-inline int TContinuousPool<T>::getItemIndex(T const* item)
+inline int TContiguousPool<T>::getItemIndex(T const* item)
 {
    return std::distance<T const*>(m_pBuf, item);
 }

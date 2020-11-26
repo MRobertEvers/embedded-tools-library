@@ -152,14 +152,14 @@
     <ClInclude Include="IPool.h" />
     <ClInclude Include="IQueue.h" />
     <ClInclude Include="TManaged.h" />
-    <ClInclude Include="TManagedContinuousPool.h" />
+    <ClInclude Include="TManagedContiguousPool.h" />
     <ClInclude Include="ControlBlock.h" />
-    <ClInclude Include="TManagedContinuousPoolBuffer.h" />
+    <ClInclude Include="TManagedContiguousPoolBuffer.h" />
     <ClInclude Include="TManagedObject.h" />
     <ClInclude Include="TMessage.h" />
-    <ClInclude Include="TContinuousPool.h" />
+    <ClInclude Include="TContiguousPool.h" />
     <ClInclude Include="TQueue.h" />
-    <ClInclude Include="TContinuousPoolBuffer.h" />
+    <ClInclude Include="TContiguousPoolBuffer.h" />
     <ClInclude Include="TStaticQueue.h" />
     <ClInclude Include="WindowsQueue.h" />
   </ItemGroup>

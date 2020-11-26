@@ -5,7 +5,7 @@
 namespace Pool::Resource
 {
 template <typename T, size_t Size>
-class TContinuousPoolBuffer
+class TContiguousPoolBuffer
 {
 public:
    T buffer[Size];

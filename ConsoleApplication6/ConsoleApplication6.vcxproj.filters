@@ -77,14 +77,8 @@
     <ClInclude Include="IPool.h">
       <Filter>Header Files\Pool</Filter>
     </ClInclude>
-    <ClInclude Include="TContinuousPool.h">
-      <Filter>Header Files\Pool</Filter>
-    </ClInclude>
     <ClInclude Include="TManagedObject.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TManagedContinuousPool.h">
-      <Filter>Header Files\Pool\Managed</Filter>
     </ClInclude>
     <ClInclude Include="ControlBlock.h">
       <Filter>Header Files\Pool\Managed</Filter>
@@ -92,11 +86,17 @@
     <ClInclude Include="TManaged.h">
       <Filter>Header Files\Pool\Managed</Filter>
     </ClInclude>
-    <ClInclude Include="TContinuousPoolBuffer.h">
+    <ClInclude Include="TManagedContiguousPool.h">
+      <Filter>Header Files\Pool\Managed</Filter>
+    </ClInclude>
+    <ClInclude Include="TManagedContiguousPoolBuffer.h">
+      <Filter>Header Files\Pool\Managed</Filter>
+    </ClInclude>
+    <ClInclude Include="TContiguousPool.h">
       <Filter>Header Files\Pool</Filter>
     </ClInclude>
-    <ClInclude Include="TManagedContinuousPoolBuffer.h">
-      <Filter>Header Files\Pool\Managed</Filter>
+    <ClInclude Include="TContiguousPoolBuffer.h">
+      <Filter>Header Files\Pool</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

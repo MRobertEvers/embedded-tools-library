@@ -3,8 +3,8 @@
 
 #include <iostream>
 
-#include "TContinuousPool.h"
-#include "TManagedContinuousPool.h"
+#include "TContiguousPool.h"
+#include "TManagedContiguousPool.h"
 #include "TStaticQueue.h"
 #include "TMessage.h"
 #include "IMessage.h"
@@ -17,7 +17,7 @@ int main()
 {
    std::array<int, 120u> q;
    std::array<int, 120u> buf;
-   Pool::TContinuousPool<int> pool(&buf, &q);
+   Pool::TContiguousPool<int> pool(&buf, &q);
 
    auto myInt = pool.acquire();
    *myInt = 5;
@@ -28,7 +28,7 @@ int main()
     std::array<int, 120u> messageQ;
     std::array<Pool::Managed::ControlBlock, 120u> controlBuf;
     std::array<Actor::TMessage<32>, 120u> messageBuf;
-    Pool::Managed::TManagedContinuousPool<Actor::TMessage<32>> messagePool(&messageBuf, &messageQ, &controlBuf);
+    Pool::Managed::TManagedContiguousPool<Actor::TMessage<32>> messagePool(&messageBuf, &messageQ, &controlBuf);
 
     {
        auto msg = messagePool.acquire();

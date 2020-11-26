@@ -1,7 +1,7 @@
 #pragma once
-#include "TContinuousPool.h"
+#include "TContiguousPool.h"
 #include "ControlBlock.h"
-#include "TManagedContinuousPoolBuffer.h"
+#include "TManagedContiguousPoolBuffer.h"
 #include "TManaged.h"
 
 #include <array>
@@ -9,11 +9,11 @@
 namespace Pool::Managed
 {
 template <typename T>
-class TManagedContinuousPool
+class TManagedContiguousPool
 {
 public:
    template <size_t Size>
-   TManagedContinuousPool(
+   TManagedContiguousPool(
       std::array<T, Size>* buffer, 
       std::array<int, Size>* queue, 
       std::array<ControlBlock, Size>* control
@@ -23,19 +23,19 @@ public:
    };
 
    template <size_t Size>
-   TManagedContinuousPool(
-      Resource::TContinuousPoolBuffer<T, Size>* resource,
+   TManagedContiguousPool(
+      Resource::TContiguousPoolBuffer<T, Size>* resource,
       std::array<ControlBlock, Size>* control
    )
-      : TManagedContinuousPool(resource->buffer, resource->control, control)
+      : TManagedContiguousPool(resource->buffer, resource->control, control)
    {
    };
 
    template <size_t Size>
-   TManagedContinuousPool(
-      Resource::TManagedContinuousPoolBuffer<T, Size>* resource
+   TManagedContiguousPool(
+      Resource::TManagedContiguousPoolBuffer<T, Size>* resource
    )
-      : TManagedContinuousPool(resource->buffer, resource->queue, resource->control)
+      : TManagedContiguousPool(resource->buffer, resource->queue, resource->control)
    {
    };
 
@@ -56,7 +56,7 @@ public:
    }
 
 private:
-   TContinuousPool<T> m_pool;
+   TContiguousPool<T> m_pool;
    ControlBlock* m_pControlBlocks;
    // We know the pool and the control blocks array are the same size, so we can just 
    // use control blocks round robbin.
