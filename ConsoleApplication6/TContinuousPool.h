@@ -3,7 +3,7 @@
 #include "IQueue.h"
 #include "TQueue.h"
 #include "IPool.h"
-#include "TStaticPoolBuffer.h"
+#include "TContinuousPoolBuffer.h"
 
 #include <array>
 
@@ -24,7 +24,7 @@ public:
    };
 
    template <size_t Size>
-   TContinuousPool(Resource::TStaticPoolBuffer<T, Size>* resource)
+   TContinuousPool(Resource::TContinuousPoolBuffer<T, Size>* resource)
       : TContinuousPool(resource->buffer, resource->control)
    {
    };

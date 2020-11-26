@@ -143,7 +143,6 @@
     <ClCompile Include="ConsoleApplication6.cpp" />
     <ClCompile Include="IActorQueue.cpp" />
     <ClCompile Include="IMessage.cpp" />
-    <ClCompile Include="TManagedObject.cpp" />
     <ClCompile Include="TMessage.cpp" />
     <ClCompile Include="WindowsQueue.cpp" />
   </ItemGroup>
@@ -152,15 +151,15 @@
     <ClInclude Include="IMessage.h" />
     <ClInclude Include="IPool.h" />
     <ClInclude Include="IQueue.h" />
-    <ClInclude Include="IRefCountedControlBlock.h" />
     <ClInclude Include="TManaged.h" />
     <ClInclude Include="TManagedContinuousPool.h" />
     <ClInclude Include="ControlBlock.h" />
+    <ClInclude Include="TManagedContinuousPoolBuffer.h" />
     <ClInclude Include="TManagedObject.h" />
     <ClInclude Include="TMessage.h" />
     <ClInclude Include="TContinuousPool.h" />
     <ClInclude Include="TQueue.h" />
-    <ClInclude Include="TStaticPoolBuffer.h" />
+    <ClInclude Include="TContinuousPoolBuffer.h" />
     <ClInclude Include="TStaticQueue.h" />
     <ClInclude Include="WindowsQueue.h" />
   </ItemGroup>

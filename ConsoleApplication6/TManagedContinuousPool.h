@@ -1,6 +1,7 @@
 #pragma once
 #include "TContinuousPool.h"
 #include "ControlBlock.h"
+#include "TManagedContinuousPoolBuffer.h"
 #include "TManaged.h"
 
 #include <array>
@@ -17,16 +18,24 @@ public:
       std::array<int, Size>* queue, 
       std::array<ControlBlock, Size>* control
    ) 
-      : m_pool(buffer, queue), m_pControlBlocks(control->data())
+      : m_pool(buffer, queue), m_pControlBlocks(control->data()), m_nextControlBlock(0)
    {
    };
 
    template <size_t Size>
    TManagedContinuousPool(
-      Resource::TStaticPoolBuffer<T, Size>* resource,
+      Resource::TContinuousPoolBuffer<T, Size>* resource,
       std::array<ControlBlock, Size>* control
    )
       : TManagedContinuousPool(resource->buffer, resource->control, control)
+   {
+   };
+
+   template <size_t Size>
+   TManagedContinuousPool(
+      Resource::TManagedContinuousPoolBuffer<T, Size>* resource
+   )
+      : TManagedContinuousPool(resource->buffer, resource->queue, resource->control)
    {
    };
 
@@ -51,7 +60,7 @@ private:
    ControlBlock* m_pControlBlocks;
    // We know the pool and the control blocks array are the same size, so we can just 
    // use control blocks round robbin.
-   int m_nextControlBlock;
+   int m_nextControlBlock = 0;
 };
 }
 
