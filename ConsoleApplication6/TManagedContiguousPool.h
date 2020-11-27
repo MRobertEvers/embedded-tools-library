@@ -36,7 +36,7 @@ public:
    {
       if( m_pool.numAvailable() == 0 )
       {
-         return TManaged<T>{nullptr};
+         return TManaged<T>{ nullptr };
       }
       else
       {

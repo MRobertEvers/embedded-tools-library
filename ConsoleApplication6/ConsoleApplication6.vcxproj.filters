@@ -37,15 +37,12 @@
     <Filter Include="Header Files\Stack">
       <UniqueIdentifier>{4aa586ee-4073-43be-a484-a84521d535a3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\MessagePool">
+      <UniqueIdentifier>{fbb96e57-dd5d-4867-810b-b7f2dfef6d76}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ConsoleApplication6.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="IMessage.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TMessage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="WindowsQueue.cpp">
@@ -53,12 +50,6 @@
     </ClCompile>
     <ClCompile Include="IActorQueue.cpp">
       <Filter>Source Files\ActorQueue</Filter>
-    </ClCompile>
-    <ClCompile Include="TieredMessagePool.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TManagedStorage.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -113,17 +104,23 @@
     <ClInclude Include="IStack.h">
       <Filter>Header Files\Stack</Filter>
     </ClInclude>
-    <ClInclude Include="TChunkedAllocator.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TieredMessagePool.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="IManagedPool.h">
       <Filter>Header Files\Pool\Managed</Filter>
     </ClInclude>
     <ClInclude Include="TManagedStorage.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceMapPool.h">
+      <Filter>Header Files\MessagePool</Filter>
+    </ClInclude>
+    <ClInclude Include="SourceMap.h">
+      <Filter>Header Files\MessagePool</Filter>
+    </ClInclude>
+    <ClInclude Include="MessageHandle.h">
+      <Filter>Header Files\MessagePool</Filter>
+    </ClInclude>
+    <ClInclude Include="MessageMultiPool.h">
+      <Filter>Header Files\MessagePool</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

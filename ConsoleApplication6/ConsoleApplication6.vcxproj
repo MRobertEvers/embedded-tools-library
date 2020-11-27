@@ -142,10 +142,6 @@
   <ItemGroup>
     <ClCompile Include="ConsoleApplication6.cpp" />
     <ClCompile Include="IActorQueue.cpp" />
-    <ClCompile Include="IMessage.cpp" />
-    <ClCompile Include="TieredMessagePool.cpp" />
-    <ClCompile Include="TManagedStorage.cpp" />
-    <ClCompile Include="TMessage.cpp" />
     <ClCompile Include="WindowsQueue.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -155,8 +151,10 @@
     <ClInclude Include="IPool.h" />
     <ClInclude Include="IQueue.h" />
     <ClInclude Include="IStack.h" />
-    <ClInclude Include="TChunkedAllocator.h" />
-    <ClInclude Include="TieredMessagePool.h" />
+    <ClInclude Include="MessageHandle.h" />
+    <ClInclude Include="MessageMultiPool.h" />
+    <ClInclude Include="SourceMap.h" />
+    <ClInclude Include="SourceMapPool.h" />
     <ClInclude Include="TManaged.h" />
     <ClInclude Include="TManagedContiguousPool.h" />
     <ClInclude Include="ControlBlock.h" />

@@ -8,14 +8,14 @@
 #include "TStaticQueue.h"
 #include "TMessage.h"
 #include "IMessage.h"
-#include "TieredMessagePool.h"
+#include "MessageMultiPool.h"
 
 #include <iostream>
 #include <array>
 
 void tpool()
 {
-   TieredMessagePool pool;
+   Pool::MultiPool::MessageMultiPool pool;
 
    {
       auto item = pool.acquire();
