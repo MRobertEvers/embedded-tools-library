@@ -8,36 +8,45 @@
 #include "TStaticQueue.h"
 #include "TMessage.h"
 #include "IMessage.h"
+#include "TieredMessagePool.h"
 
 #include <iostream>
 #include <array>
 
+void tpool()
+{
+   TieredMessagePool pool;
+
+   {
+      auto item = pool.acquire();
+   }
+}
 
 int main()
 {
-   std::array<int, 120u> q;
-   std::array<int, 120u> buf;
-   Pool::TContiguousPool<int> pool(&buf, &q);
+   std::array<int, 120u> q = { 0 };
+   std::array<int, 120u> buffer;
+   Pool::TContiguousPool<int> smallPool(&buffer, &q);
 
-   auto myInt = pool.acquire();
+   auto myInt = smallPool.acquire();
    *myInt = 5;
 
     std::cout << "Hello World!\n";
-    std::cout << buf[0] << "\n";
+    std::cout << buffer[119] << "\n";
 
     std::array<int, 120u> messageQ;
-    std::array<Pool::Managed::ControlBlock, 120u> controlBuf;
-    std::array<Actor::TMessage<32>, 120u> messageBuf;
-    Pool::Managed::TManagedContiguousPool<Actor::TMessage<32>> messagePool(&messageBuf, &messageQ, &controlBuf);
+    std::array<Pool::Managed::TManagedStorage<Actor::TMessage<32>>, 120u> messageBuf;
+    Pool::Managed::TManagedContiguousPool<Actor::TMessage<32>> messagePool(&messageBuf, &messageQ);
 
     {
        auto msg = messagePool.acquire();
        msg->destAddr = 1;
 
-       std::cout << messageBuf[0].destAddr;
+       std::cout << messageBuf[119].object.destAddr;
     }
-    
-    
+
+    tpool();
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -143,23 +143,31 @@
     <ClCompile Include="ConsoleApplication6.cpp" />
     <ClCompile Include="IActorQueue.cpp" />
     <ClCompile Include="IMessage.cpp" />
+    <ClCompile Include="TieredMessagePool.cpp" />
+    <ClCompile Include="TManagedStorage.cpp" />
     <ClCompile Include="TMessage.cpp" />
     <ClCompile Include="WindowsQueue.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IActorQueue.h" />
+    <ClInclude Include="IManagedPool.h" />
     <ClInclude Include="IMessage.h" />
     <ClInclude Include="IPool.h" />
     <ClInclude Include="IQueue.h" />
+    <ClInclude Include="IStack.h" />
+    <ClInclude Include="TChunkedAllocator.h" />
+    <ClInclude Include="TieredMessagePool.h" />
     <ClInclude Include="TManaged.h" />
     <ClInclude Include="TManagedContiguousPool.h" />
     <ClInclude Include="ControlBlock.h" />
     <ClInclude Include="TManagedContiguousPoolBuffer.h" />
     <ClInclude Include="TManagedObject.h" />
+    <ClInclude Include="TManagedStorage.h" />
     <ClInclude Include="TMessage.h" />
     <ClInclude Include="TContiguousPool.h" />
     <ClInclude Include="TQueue.h" />
     <ClInclude Include="TContiguousPoolBuffer.h" />
+    <ClInclude Include="TStack.h" />
     <ClInclude Include="TStaticQueue.h" />
     <ClInclude Include="WindowsQueue.h" />
   </ItemGroup>

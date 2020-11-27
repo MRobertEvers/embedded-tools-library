@@ -8,7 +8,7 @@ template <typename T, size_t Size>
 class TContiguousPoolBuffer
 {
 public:
-   T buffer[Size];
+   std::array<T, Size> buffer;
    std::array<int, Size> control;
 };
 

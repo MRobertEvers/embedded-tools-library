@@ -34,6 +34,9 @@
     <Filter Include="Header Files\Pool\Managed">
       <UniqueIdentifier>{046595f1-1b08-4a0f-957a-545015ec213f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Stack">
+      <UniqueIdentifier>{4aa586ee-4073-43be-a484-a84521d535a3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ConsoleApplication6.cpp">
@@ -50,6 +53,12 @@
     </ClCompile>
     <ClCompile Include="IActorQueue.cpp">
       <Filter>Source Files\ActorQueue</Filter>
+    </ClCompile>
+    <ClCompile Include="TieredMessagePool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TManagedStorage.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -97,6 +106,24 @@
     </ClInclude>
     <ClInclude Include="TContiguousPoolBuffer.h">
       <Filter>Header Files\Pool</Filter>
+    </ClInclude>
+    <ClInclude Include="TStack.h">
+      <Filter>Header Files\Stack</Filter>
+    </ClInclude>
+    <ClInclude Include="IStack.h">
+      <Filter>Header Files\Stack</Filter>
+    </ClInclude>
+    <ClInclude Include="TChunkedAllocator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TieredMessagePool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IManagedPool.h">
+      <Filter>Header Files\Pool\Managed</Filter>
+    </ClInclude>
+    <ClInclude Include="TManagedStorage.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

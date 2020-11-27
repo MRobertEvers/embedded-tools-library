@@ -1,7 +1,6 @@
 #pragma once
 
-#include "IQueue.h"
-#include "TQueue.h"
+#include "TStack.h"
 #include "IPool.h"
 #include "TContiguousPoolBuffer.h"
 
@@ -25,7 +24,7 @@ public:
 
    template <size_t Size>
    TContiguousPool(Resource::TContiguousPoolBuffer<T, Size>* resource)
-      : TContiguousPool(resource->buffer, resource->control)
+      : TContiguousPool(&resource->buffer, &resource->control)
    {
    };
 
@@ -42,19 +41,21 @@ public:
       return m_q.count();
    }
 
-protected:
-   int getNextAvailable();
    int getItemIndex(T const* item);
 
+   int getNextAvailableIndex();
+
 private:
-   TQueue<int> m_q;
+   int acquireNextIndex();
+
+   TStack<int> m_q;
    T* m_pBuf;
 };
 
 template<typename T>
 inline T* TContiguousPool<T>::acquire()
 {
-   auto next = getNextAvailable();
+   auto next = getNextAvailableIndex();
    if( next == -1 )
    {
       return nullptr;
@@ -72,7 +73,19 @@ inline void TContiguousPool<T>::release(T const* item)
 }
 
 template<typename T>
-inline int TContiguousPool<T>::getNextAvailable()
+inline int TContiguousPool<T>::getNextAvailableIndex()
+{
+   return m_q.peek();
+}
+
+template<typename T>
+inline int TContiguousPool<T>::getItemIndex(T const* item)
+{
+   return std::distance<T const*>(m_pBuf, item);
+}
+
+template<typename T>
+inline int TContiguousPool<T>::acquireNextIndex()
 {
    if( m_q.count() == 0 )
    {
@@ -82,11 +95,5 @@ inline int TContiguousPool<T>::getNextAvailable()
    {
       return m_q.pop();
    };
-}
-
-template<typename T>
-inline int TContiguousPool<T>::getItemIndex(T const* item)
-{
-   return std::distance<T const*>(m_pBuf, item);
 }
 }
