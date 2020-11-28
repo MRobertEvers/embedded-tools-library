@@ -21,13 +21,13 @@ public:
 	void* data() override;
 
 	template<typename T, typename... Args>
-	void construct(Args&&... args)
-	{
-		static_assert(std::is_trivially_destructible<T>::value);
-		static_assert(sizeof(T) <= Size);
+	void construct(Args&&... args);
+	//{
+	//	static_assert(std::is_trivially_destructible<T>::value);
+	//	static_assert(sizeof(T) <= Size);
 
-		new (buffer) T(std::forward<Args>(args)...);
-	}
+	//	new (buffer) T(std::forward<Args>(args)...);
+	//}
 
 	short destAddr;
 	short replyAddr;
@@ -57,6 +57,12 @@ template<size_t Size>
 inline void* TMessage<Size>::data()
 {
 	return buffer;
+}
+
+template<size_t Size>
+template<typename T, typename ...Args>
+inline void TMessage<Size>::construct(Args&& ...args)
+{
 }
 
 }

@@ -9,13 +9,41 @@
 #include "TMessage.h"
 #include "IMessage.h"
 #include "MessageMultiPool.h"
+#include "Dispatcher.h"
+#include "CLIActor.h"
+#include "WindowsQueue.h"
+#include "TArrayList.h"
 
+#include <thread>
 #include <iostream>
 #include <array>
+//
+static Actor::MessagePool::MessageMultiPool p;
+static Dispatcher dispatcher(&p);
+
+void io_thread()
+{
+   while( true )
+   {
+      char c = std::cin.get();
+      dispatcher.sendMessage(1, static_cast<char*>(&c), 1);
+   }
+}
+
+void cli_thread()
+{
+   WindowsQueue msgQ{};
+   CLIActor a{ &msgQ };
+   dispatcher.registerActor(&a);
+   while( true )
+   {
+      a.process();
+   }
+}
 
 void tpool()
 {
-   Pool::MultiPool::MessageMultiPool pool;
+   Actor::MessagePool::MessageMultiPool pool;
 
    {
       auto item = pool.acquire();
@@ -45,8 +73,21 @@ int main()
        std::cout << messageBuf[119].object.destAddr;
     }
 
+    TContiguousBuffer<std::string, 12> memory;
+    std::array<int, 12> stackBuf;
+    std::array<int, 12> listBuf;
+    TArrayList<std::string> list(&memory, &stackBuf, &listBuf);
+
+    list.emplace("wowow");
+
+    std::cout << *list.at(0);
+
     tpool();
 
+    std::thread t1(&io_thread);
+    std::thread t2(&cli_thread);
+
+    t1.join();
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

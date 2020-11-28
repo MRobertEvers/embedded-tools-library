@@ -9,25 +9,27 @@
 #include <vector>
 namespace Pool::MultiPool
 {
-class SourceMapPool : public Pool::TContiguousPool<Pool::Managed::TManagedStorage<SourceMap>>
+class SourceMapPool : public TContiguousPool<Managed::TManagedStorage<SourceMap>>
 {
 public:
 	SourceMapPool(
-		Pool::Resource::TContiguousPoolBuffer<Pool::Managed::TManagedStorage<SourceMap>, 120>* messageBuffer,
-		std::vector<Pool::Managed::TManaged<Actor::TMessage<4>>>* a
+		Resource::TContiguousPoolBuffer<Managed::TManagedStorage<SourceMap>, 120>* messageBuffer,
+		// TODO: This should be a releaser - not depend on the allocator
+		TArrayList<Pool::Managed::TManaged<Actor::TMessage<4>>>* alloc
 	)
-		: Pool::TContiguousPool<Pool::Managed::TManagedStorage<SourceMap>>(messageBuffer),
-		smallPoolHandles(a)
+		: TContiguousPool<Managed::TManagedStorage<SourceMap>>(messageBuffer),
+		smallPoolHandles(alloc)
 	{
 
 	};
 
-	void release(Pool::Managed::TManagedStorage<SourceMap> const* item) override
+	void release(Managed::TManagedStorage<SourceMap> const* item) override
 	{
-		smallPoolHandles->erase(smallPoolHandles->begin() + item->object.getSource());
+		// deallocator->release(item->object.getSource(), item->object.getId()); // etc
+		smallPoolHandles->pop(item->object.getSource());
 	}
-public:
-	std::vector<Pool::Managed::TManaged<Actor::TMessage<4>>>* smallPoolHandles;
 
+public:
+	TArrayList<Pool::Managed::TManaged<Actor::TMessage<4>>>* smallPoolHandles;
 };
 }

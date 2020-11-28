@@ -140,26 +140,43 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ActorModel.cpp" />
+    <ClCompile Include="CLIActor.cpp" />
     <ClCompile Include="ConsoleApplication6.cpp" />
+    <ClCompile Include="Dispatcher.cpp" />
     <ClCompile Include="IActorQueue.cpp" />
+    <ClCompile Include="IAllocator.cpp" />
+    <ClCompile Include="IRandomAccessPool.cpp" />
+    <ClCompile Include="LogActor.cpp" />
+    <ClCompile Include="TArrayList.cpp" />
+    <ClCompile Include="TArrayListBuffer.cpp" />
     <ClCompile Include="WindowsQueue.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ActorModel.h" />
+    <ClInclude Include="CLIActor.h" />
+    <ClInclude Include="Dispatcher.h" />
     <ClInclude Include="IActorQueue.h" />
+    <ClInclude Include="IAllocator.h" />
     <ClInclude Include="IManagedPool.h" />
     <ClInclude Include="IMessage.h" />
     <ClInclude Include="IPool.h" />
     <ClInclude Include="IQueue.h" />
+    <ClInclude Include="IRandomAccessPool.h" />
     <ClInclude Include="IStack.h" />
+    <ClInclude Include="LogActor.h" />
     <ClInclude Include="MessageHandle.h" />
     <ClInclude Include="MessageMultiPool.h" />
     <ClInclude Include="SourceMap.h" />
     <ClInclude Include="SourceMapPool.h" />
+    <ClInclude Include="TArrayList.h" />
+    <ClInclude Include="TArrayListBuffer.h" />
+    <ClInclude Include="TContiguousAllocator.h" />
+    <ClInclude Include="TContiguousBuffer.h" />
     <ClInclude Include="TManaged.h" />
     <ClInclude Include="TManagedContiguousPool.h" />
     <ClInclude Include="ControlBlock.h" />
     <ClInclude Include="TManagedContiguousPoolBuffer.h" />
-    <ClInclude Include="TManagedObject.h" />
     <ClInclude Include="TManagedStorage.h" />
     <ClInclude Include="TMessage.h" />
     <ClInclude Include="TContiguousPool.h" />

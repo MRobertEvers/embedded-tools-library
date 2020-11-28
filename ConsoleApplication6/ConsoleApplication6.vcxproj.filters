@@ -40,6 +40,12 @@
     <Filter Include="Header Files\MessagePool">
       <UniqueIdentifier>{fbb96e57-dd5d-4867-810b-b7f2dfef6d76}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Allocators">
+      <UniqueIdentifier>{e19d0e26-3aee-4acd-964b-4abfe57498e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\List">
+      <UniqueIdentifier>{445ea53f-3903-4611-9ace-6a19651d119e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ConsoleApplication6.cpp">
@@ -50,6 +56,30 @@
     </ClCompile>
     <ClCompile Include="IActorQueue.cpp">
       <Filter>Source Files\ActorQueue</Filter>
+    </ClCompile>
+    <ClCompile Include="Dispatcher.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ActorModel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CLIActor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LogActor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IAllocator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TArrayList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IRandomAccessPool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TArrayListBuffer.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -76,9 +106,6 @@
     </ClInclude>
     <ClInclude Include="IPool.h">
       <Filter>Header Files\Pool</Filter>
-    </ClInclude>
-    <ClInclude Include="TManagedObject.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ControlBlock.h">
       <Filter>Header Files\Pool\Managed</Filter>
@@ -121,6 +148,36 @@
     </ClInclude>
     <ClInclude Include="MessageMultiPool.h">
       <Filter>Header Files\MessagePool</Filter>
+    </ClInclude>
+    <ClInclude Include="Dispatcher.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ActorModel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CLIActor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LogActor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IAllocator.h">
+      <Filter>Header Files\Allocators</Filter>
+    </ClInclude>
+    <ClInclude Include="TArrayList.h">
+      <Filter>Header Files\List</Filter>
+    </ClInclude>
+    <ClInclude Include="TContiguousAllocator.h">
+      <Filter>Header Files\Allocators</Filter>
+    </ClInclude>
+    <ClInclude Include="IRandomAccessPool.h">
+      <Filter>Header Files\Pool</Filter>
+    </ClInclude>
+    <ClInclude Include="TContiguousBuffer.h">
+      <Filter>Header Files\Allocators</Filter>
+    </ClInclude>
+    <ClInclude Include="TArrayListBuffer.h">
+      <Filter>Header Files\List</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
