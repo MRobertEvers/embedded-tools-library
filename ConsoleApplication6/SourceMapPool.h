@@ -15,7 +15,7 @@ public:
 	SourceMapPool(
 		Resource::TContiguousPoolBuffer<Managed::TManagedStorage<SourceMap>, 120>* messageBuffer,
 		// TODO: This should be a releaser - not depend on the allocator
-		TArrayList<Pool::Managed::TManaged<Actor::TMessage<4>>>* alloc
+		TArrayList<Pool::Managed::TManaged<Actor::TMessage<50>>>* alloc
 	)
 		: TContiguousPool<Managed::TManagedStorage<SourceMap>>(messageBuffer),
 		smallPoolHandles(alloc)
@@ -30,6 +30,6 @@ public:
 	}
 
 public:
-	TArrayList<Pool::Managed::TManaged<Actor::TMessage<4>>>* smallPoolHandles;
+	TArrayList<Pool::Managed::TManaged<Actor::TMessage<50>>>* smallPoolHandles;
 };
 }

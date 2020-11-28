@@ -25,8 +25,9 @@ void io_thread()
 {
    while( true )
    {
-      char c = std::cin.get();
-      dispatcher.sendMessage(1, static_cast<char*>(&c), 1);
+      char buf[50] = { 0 };
+      std::cin.getline(buf, sizeof(buf));
+      dispatcher.sendMessage(1, buf, sizeof(buf));
    }
 }
 

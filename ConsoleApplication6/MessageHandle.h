@@ -5,7 +5,7 @@
 
 #include "SourceMap.h"
 
-#include <iostream>
+//#include <iostream>
 
 namespace Actor
 {
@@ -15,12 +15,12 @@ public:
 	MessageHandle(Actor::IMessage* msg, Pool::Managed::TManaged<Pool::MultiPool::SourceMap> srcInfo)
 		: m_pMessage(msg), m_SourceMap(srcInfo)
 	{
-		std::cout << "MessageHandle()\n";
+		//std::cout << "MessageHandle()\n";
 	};
 
 	~MessageHandle()
 	{
-		std::cout << "~MessageHandle()\n";
+		//std::cout << "~MessageHandle()\n";
 	}
 
 	bool ok()

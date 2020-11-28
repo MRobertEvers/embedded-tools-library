@@ -42,11 +42,11 @@ public:
 	}
 
 private:
-	Pool::Resource::TManagedContiguousPoolBuffer<Actor::TMessage<4>, 120> smallPoolBuffer;
-	Pool::Managed::TManagedContiguousPool<Actor::TMessage<4>> smallPool;
+	Pool::Resource::TManagedContiguousPoolBuffer<Actor::TMessage<50>, 120> smallPoolBuffer;
+	Pool::Managed::TManagedContiguousPool<Actor::TMessage<50>> smallPool;
 
-	TArrayListBuffer<Pool::Managed::TManaged<Actor::TMessage<4>>, 120> smallPoolHandlesBuffer;
-	TArrayList<Pool::Managed::TManaged<Actor::TMessage<4>>> smallPoolHandles;
+	TArrayListBuffer<Pool::Managed::TManaged<Actor::TMessage<50>>, 120> smallPoolHandlesBuffer;
+	TArrayList<Pool::Managed::TManaged<Actor::TMessage<50>>> smallPoolHandles;
 
 	std::array<Pool::Managed::ControlBlock, 120> ctrlBlocks;
 	Pool::Resource::TContiguousPoolBuffer<Pool::Managed::TManagedStorage<Pool::MultiPool::SourceMap>, 120> messageBuffer;

@@ -20,7 +20,7 @@ public:
 	)
 		: m_buf(reinterpret_cast<T*>(memory->buffer.data())), 
 		available(stackBuf->data(), stackBuf->size()), 
-		order(listBuf->data()), capacity(Size), m_size(0)
+		order(listBuf->data()), m_capacity(Size), m_size(0)
 	{
 		memset(order, 0x00, Size);
 		for( int i = 0; i < Size; ++i )
@@ -40,7 +40,7 @@ public:
 	template <typename ...Args>
 	void emplace(Args&& ...args)
 	{
-		if( m_size < capacity )
+		if( m_size < m_capacity )
 		{
 			auto newItem = available.pop();
 
@@ -64,8 +64,13 @@ public:
 
 	void pop(int i)
 	{
+		if( i >= m_size )
+		{
+			return;
+		}
+
 		auto removed = order[i];
-		if( i < capacity - 1 )
+		if( i < m_capacity - 1 )
 		{
 			memmove(order + i, order + i + 1, m_size - i - 1);
 		}
@@ -82,11 +87,17 @@ public:
 	{
 		return m_size;
 	}
+
+	int capacity()
+	{
+		return m_capacity;
+	}
+
 private:
 	T* m_buf;
 	TQueue<int> available;
 	int* order;
-	int capacity;
+	int m_capacity;
 	int m_size;
 };
 
