@@ -1,25 +1,22 @@
 #pragma once
 #include "ActorModel.h"
 #include "MessageHandle.h"
-
-#include <string>
-#include <iostream>
+#include "Dispatcher.h"
 
 class CLIActor : public Actor::ActorModel 
 {
 public:
-	CLIActor(Actor::IActorQueue* q) : Actor::ActorModel(q)
+	CLIActor(Actor::IActorQueue* q, Dispatcher* disp) : Actor::ActorModel(q), dispatcher(disp)
 	{
 
 	}
 
+	bool subscribed(int msgType);
 
 protected:
-	void handleMessage(Actor::MessageHandle msg)
-	{
-		std::string sz(static_cast<char*>(msg->data()), msg->size());
+	void handleMessage(Actor::MessageHandle msg);
 
-		std::cout << sz;
-	}
+private:
+	Dispatcher* dispatcher;
 };
 

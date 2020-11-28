@@ -5,6 +5,8 @@ namespace Actor
 class IMessage
 {
 public:
+	virtual void build(int dest, int resp, int type, char* data, int size) = 0;
+
 	virtual int sendTo() = 0;
 	virtual int replyTo() = 0;
 	virtual int type() = 0;

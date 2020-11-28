@@ -25,12 +25,6 @@
     <Filter Include="Source Files\Queue">
       <UniqueIdentifier>{1ba13882-37fb-4422-b283-2694589b6b50}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\ActorQueue">
-      <UniqueIdentifier>{c9982992-4ad5-4d2c-a673-139adf78bca7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\ActorQueue">
-      <UniqueIdentifier>{48ac3614-0758-4bc3-bb03-a70dd1e98a35}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Pool\Managed">
       <UniqueIdentifier>{046595f1-1b08-4a0f-957a-545015ec213f}</UniqueIdentifier>
     </Filter>
@@ -46,16 +40,22 @@
     <Filter Include="Header Files\List">
       <UniqueIdentifier>{445ea53f-3903-4611-9ace-6a19651d119e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Actor">
+      <UniqueIdentifier>{c9982992-4ad5-4d2c-a673-139adf78bca7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Actor">
+      <UniqueIdentifier>{48ac3614-0758-4bc3-bb03-a70dd1e98a35}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ConsoleApplication6.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="WindowsQueue.cpp">
-      <Filter>Source Files\ActorQueue</Filter>
+      <Filter>Source Files\Actor</Filter>
     </ClCompile>
     <ClCompile Include="IActorQueue.cpp">
-      <Filter>Source Files\ActorQueue</Filter>
+      <Filter>Source Files\Actor</Filter>
     </ClCompile>
     <ClCompile Include="Dispatcher.cpp">
       <Filter>Source Files</Filter>
@@ -66,19 +66,10 @@
     <ClCompile Include="CLIActor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="LogActor.cpp">
+    <ClCompile Include="scratch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="IAllocator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TArrayList.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="IRandomAccessPool.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TArrayListBuffer.cpp">
+    <ClCompile Include="LogFileActor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -86,17 +77,11 @@
     <ClInclude Include="IQueue.h">
       <Filter>Header Files\Queue</Filter>
     </ClInclude>
-    <ClInclude Include="IMessage.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TMessage.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="WindowsQueue.h">
-      <Filter>Header Files\ActorQueue</Filter>
+      <Filter>Header Files\Actor</Filter>
     </ClInclude>
     <ClInclude Include="IActorQueue.h">
-      <Filter>Header Files\ActorQueue</Filter>
+      <Filter>Header Files\Actor</Filter>
     </ClInclude>
     <ClInclude Include="TStaticQueue.h">
       <Filter>Header Files\Queue</Filter>
@@ -134,9 +119,6 @@
     <ClInclude Include="IManagedPool.h">
       <Filter>Header Files\Pool\Managed</Filter>
     </ClInclude>
-    <ClInclude Include="TManagedStorage.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="SourceMapPool.h">
       <Filter>Header Files\MessagePool</Filter>
     </ClInclude>
@@ -158,9 +140,6 @@
     <ClInclude Include="CLIActor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="LogActor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="IAllocator.h">
       <Filter>Header Files\Allocators</Filter>
     </ClInclude>
@@ -178,6 +157,21 @@
     </ClInclude>
     <ClInclude Include="TArrayListBuffer.h">
       <Filter>Header Files\List</Filter>
+    </ClInclude>
+    <ClInclude Include="TManagedStorage.h">
+      <Filter>Header Files\Pool\Managed</Filter>
+    </ClInclude>
+    <ClInclude Include="scratch.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IMessage.h">
+      <Filter>Header Files\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="TMessage.h">
+      <Filter>Header Files\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="LogFileActor.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

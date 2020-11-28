@@ -3,8 +3,6 @@
 #include "IPool.h"
 #include "TManagedStorage.h"
 
-// #include <iostream>
-
 namespace Pool::Managed
 {
 // TODO: Restrict to pointer types?
@@ -22,7 +20,6 @@ public:
 		: m_pool(pool), m_item(pool->acquire())
 	{
 		m_item->control.incRef();
-		// std::cout << "TManaged(IPool<TManagedStorage<T>>* pool) : m_item(" << &m_item << ")\n";
 	}
 
 	TManaged(const TManaged& cpy)
@@ -31,12 +28,10 @@ public:
 		m_pool = cpy.m_pool;
 
 		m_item->control.incRef();
-		// std::cout << "TManaged(const TManaged& cpy) : m_item(" << &m_item << ")\n";
 	}
 
 	~TManaged()
 	{
-		// std::cout << "~TManaged() : m_item(" << &m_item << ")\n";
 		if( m_item->control.count() > 0 )
 		{
 			auto count = m_item->control.decRef();

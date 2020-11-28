@@ -3,13 +3,16 @@
 
 #include "IMessage.h"
 
+#include <cstring>
+
 namespace Actor
 {
 template <size_t Size>
 class TMessage : public IMessage
 {
 public:
-	TMessage() = default;
+	// Inherited via IMessage
+	void build(int dest, int resp, int type, char* data, int size) override;
 
 	int sendTo() override;
 	int replyTo() override;
@@ -20,8 +23,8 @@ public:
 	};
 	void* data() override;
 
-	template<typename T, typename... Args>
-	void construct(Args&&... args);
+	//template<typename T, typename... Args>
+	//void construct(Args&&... args);
 	//{
 	//	static_assert(std::is_trivially_destructible<T>::value);
 	//	static_assert(sizeof(T) <= Size);
@@ -33,7 +36,18 @@ public:
 	short replyAddr;
 	short messageType;
 	char buffer[Size];
+
+
 };
+
+template<size_t Size>
+inline void Actor::TMessage<Size>::build(int dest, int resp, int type, char* data, int size)
+{
+	destAddr = dest;
+	replyAddr = resp;
+	messageType = type;
+	memcpy_s(buffer, sizeof(buffer), data, size);
+}
 
 template<size_t Size>
 inline int TMessage<Size>::sendTo()
@@ -57,12 +71,6 @@ template<size_t Size>
 inline void* TMessage<Size>::data()
 {
 	return buffer;
-}
-
-template<size_t Size>
-template<typename T, typename ...Args>
-inline void TMessage<Size>::construct(Args&& ...args)
-{
 }
 
 }

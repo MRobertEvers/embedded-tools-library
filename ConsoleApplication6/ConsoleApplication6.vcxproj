@@ -145,11 +145,8 @@
     <ClCompile Include="ConsoleApplication6.cpp" />
     <ClCompile Include="Dispatcher.cpp" />
     <ClCompile Include="IActorQueue.cpp" />
-    <ClCompile Include="IAllocator.cpp" />
-    <ClCompile Include="IRandomAccessPool.cpp" />
-    <ClCompile Include="LogActor.cpp" />
-    <ClCompile Include="TArrayList.cpp" />
-    <ClCompile Include="TArrayListBuffer.cpp" />
+    <ClCompile Include="LogFileActor.cpp" />
+    <ClCompile Include="scratch.cpp" />
     <ClCompile Include="WindowsQueue.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -164,9 +161,10 @@
     <ClInclude Include="IQueue.h" />
     <ClInclude Include="IRandomAccessPool.h" />
     <ClInclude Include="IStack.h" />
-    <ClInclude Include="LogActor.h" />
+    <ClInclude Include="LogFileActor.h" />
     <ClInclude Include="MessageHandle.h" />
     <ClInclude Include="MessageMultiPool.h" />
+    <ClInclude Include="scratch.h" />
     <ClInclude Include="SourceMap.h" />
     <ClInclude Include="SourceMapPool.h" />
     <ClInclude Include="TArrayList.h" />

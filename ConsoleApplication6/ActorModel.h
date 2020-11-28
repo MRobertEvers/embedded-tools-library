@@ -11,6 +11,8 @@ public:
 
 	}
 
+	virtual bool subscribed(int msgType) = 0;
+
 	void postMessage(MessageHandle msg)
 	{
 		m_pQ->putMessage(msg);
