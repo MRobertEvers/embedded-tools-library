@@ -46,6 +46,9 @@
     <Filter Include="Source Files\Actor">
       <UniqueIdentifier>{48ac3614-0758-4bc3-bb03-a70dd1e98a35}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Pool\MultiPool">
+      <UniqueIdentifier>{0598ca0f-a2d0-4f80-adb8-70504ef9c1a0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ConsoleApplication6.cpp">
@@ -73,6 +76,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MessageMultiPool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TMultiPool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IMultiPoolSource.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TStaticContiguousPool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="make_array.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -157,6 +172,24 @@
     </ClInclude>
     <ClInclude Include="TManagedPtr.h">
       <Filter>Header Files\Pool\Managed</Filter>
+    </ClInclude>
+    <ClInclude Include="IMultiPool.h">
+      <Filter>Header Files\Pool\MultiPool</Filter>
+    </ClInclude>
+    <ClInclude Include="IMultiPoolSource.h">
+      <Filter>Header Files\Pool\MultiPool</Filter>
+    </ClInclude>
+    <ClInclude Include="TStaticContiguousPool.h">
+      <Filter>Header Files\Pool</Filter>
+    </ClInclude>
+    <ClInclude Include="TStaticMultiPoolSource.h">
+      <Filter>Header Files\Pool\MultiPool</Filter>
+    </ClInclude>
+    <ClInclude Include="TMultiPool.h">
+      <Filter>Header Files\Pool\MultiPool</Filter>
+    </ClInclude>
+    <ClInclude Include="make_array.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

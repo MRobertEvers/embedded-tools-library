@@ -55,7 +55,7 @@ private:
 template<typename T>
 inline T* TContiguousPool<T>::acquire()
 {
-   auto next = getNextAvailableIndex();
+   auto next = acquireNextIndex();
    if( next == -1 )
    {
       return nullptr;
@@ -93,7 +93,9 @@ inline int TContiguousPool<T>::acquireNextIndex()
    }
    else
    {
-      return m_q.pop();
+      auto item = m_q.peek();
+      m_q.pop();
+      return item;
    };
 }
 }

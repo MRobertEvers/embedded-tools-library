@@ -52,6 +52,7 @@ void log_thread()
 
 int main()
 {
+   scratch();
     std::thread t1(&io_thread);
     std::thread t2(&cli_thread);
     std::thread t3(&log_thread);
