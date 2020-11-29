@@ -11,7 +11,6 @@ template <typename T>
 class TMultiPool : public IMultiPool<T>
 {
 public:
-	// TODO: Array type?
 	template <size_t Size>
 	TMultiPool(std::array<IMultiPoolSource<T>*, Size>* sources)
 		: m_sources(sources->data()), m_sourcesLen(Size)

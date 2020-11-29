@@ -145,13 +145,9 @@
     <ClCompile Include="ConsoleApplication6.cpp" />
     <ClCompile Include="Dispatcher.cpp" />
     <ClCompile Include="IActorQueue.cpp" />
-    <ClCompile Include="IMultiPoolSource.cpp" />
+    <ClCompile Include="IManagedStorage.cpp" />
     <ClCompile Include="LogFileActor.cpp" />
-    <ClCompile Include="make_array.cpp" />
-    <ClCompile Include="MessageMultiPool.cpp" />
     <ClCompile Include="scratch.cpp" />
-    <ClCompile Include="TMultiPool.cpp" />
-    <ClCompile Include="TStaticContiguousPool.cpp" />
     <ClCompile Include="WindowsQueue.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -160,7 +156,9 @@
     <ClInclude Include="Dispatcher.h" />
     <ClInclude Include="IActorQueue.h" />
     <ClInclude Include="IManagedPool.h" />
+    <ClInclude Include="IManagedStorage.h" />
     <ClInclude Include="IMessage.h" />
+    <ClInclude Include="IMessagePool.h" />
     <ClInclude Include="IMultiPool.h" />
     <ClInclude Include="IMultiPoolSource.h" />
     <ClInclude Include="IPool.h" />
@@ -168,11 +166,13 @@
     <ClInclude Include="IStack.h" />
     <ClInclude Include="LogFileActor.h" />
     <ClInclude Include="make_array.h" />
-    <ClInclude Include="MessageMultiPool.h" />
     <ClInclude Include="scratch.h" />
     <ClInclude Include="TArrayList.h" />
     <ClInclude Include="TArrayListBuffer.h" />
     <ClInclude Include="TAlignedBuffer.h" />
+    <ClInclude Include="TManagedMultiPool.h" />
+    <ClInclude Include="TManagedMultiPoolPtr.h" />
+    <ClInclude Include="IManagedMultiPoolSource.h" />
     <ClInclude Include="TManagedPtr.h" />
     <ClInclude Include="TManagedContiguousPool.h" />
     <ClInclude Include="ControlBlock.h" />
@@ -181,6 +181,7 @@
     <ClInclude Include="TMessage.h" />
     <ClInclude Include="TContiguousPool.h" />
     <ClInclude Include="TMultiPool.h" />
+    <ClInclude Include="TStaticManagedMultiPoolSource.h" />
     <ClInclude Include="TStaticMultiPoolSource.h" />
     <ClInclude Include="TQueue.h" />
     <ClInclude Include="TContiguousPoolBuffer.h" />

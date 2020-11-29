@@ -2,12 +2,13 @@
 #include "TArrayList.h"
 #include "TManagedContiguousPool.h"
 #include "TMessage.h"
-#include "MessageMultiPool.h"
 #include "TStaticMultiPoolSource.h"
 #include "TMultiPool.h"
 #include "make_array.h"
 #include "IMultiPoolSource.h"
-
+#include "TManagedMultiPool.h"
+#include "TStaticManagedMultiPoolSource.h"
+#include "IManagedMultiPoolSource.h"
 #include <iostream>
 #include <array>
 
@@ -21,7 +22,7 @@ void scratch()
       auto msg = messagePool.acquire();
       msg->destAddr = 1;
 
-      std::cout << messageBuf[119].object.destAddr;
+      std::cout << messageBuf[119].getPtr()->destAddr;
    }
 
    TArrayListBuffer<std::string, 120> listBuf;
@@ -40,4 +41,15 @@ void scratch()
    Actor::IMessage* p = mpool.acquire(8);
 
    mpool.release(p, 8);
+
+   {
+      Pool::Managed::TStaticManagedMultiPoolSource<Actor::IMessage, Actor::TMessage<4>, 120, 4> p1;
+      Pool::Managed::TStaticManagedMultiPoolSource<Actor::IMessage, Actor::TMessage<16>, 120, 16> p2;
+
+      auto pools = make_array<Pool::IManagedMultiPoolSource<Actor::IMessage>*>(&p1, &p2);
+      Pool::TManagedMultiPool<Actor::IMessage> mmpool(&pools);
+
+      auto handle = mmpool.acquire(8);
+      auto handle2 = mmpool.acquire(8);
+   }
 }

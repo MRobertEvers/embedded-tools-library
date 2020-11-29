@@ -49,6 +49,9 @@
     <Filter Include="Header Files\Pool\MultiPool">
       <UniqueIdentifier>{0598ca0f-a2d0-4f80-adb8-70504ef9c1a0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Pool\MultiPool\Managed">
+      <UniqueIdentifier>{80070b32-d514-4f3a-8669-8e9276d5aeda}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ConsoleApplication6.cpp">
@@ -63,9 +66,6 @@
     <ClCompile Include="Dispatcher.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ActorModel.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="CLIActor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -75,19 +75,10 @@
     <ClCompile Include="LogFileActor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MessageMultiPool.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="ActorModel.cpp">
+      <Filter>Source Files\Actor</Filter>
     </ClCompile>
-    <ClCompile Include="TMultiPool.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="IMultiPoolSource.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TStaticContiguousPool.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="make_array.cpp">
+    <ClCompile Include="IManagedStorage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -167,9 +158,6 @@
     <ClInclude Include="TAlignedBuffer.h">
       <Filter>Header Files\Allocators</Filter>
     </ClInclude>
-    <ClInclude Include="MessageMultiPool.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="TManagedPtr.h">
       <Filter>Header Files\Pool\Managed</Filter>
     </ClInclude>
@@ -189,6 +177,24 @@
       <Filter>Header Files\Pool\MultiPool</Filter>
     </ClInclude>
     <ClInclude Include="make_array.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IMessagePool.h">
+      <Filter>Header Files\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="TManagedMultiPool.h">
+      <Filter>Header Files\Pool\MultiPool\Managed</Filter>
+    </ClInclude>
+    <ClInclude Include="TManagedMultiPoolPtr.h">
+      <Filter>Header Files\Pool\MultiPool\Managed</Filter>
+    </ClInclude>
+    <ClInclude Include="TStaticManagedMultiPoolSource.h">
+      <Filter>Header Files\Pool\MultiPool\Managed</Filter>
+    </ClInclude>
+    <ClInclude Include="IManagedMultiPoolSource.h">
+      <Filter>Header Files\Pool\MultiPool\Managed</Filter>
+    </ClInclude>
+    <ClInclude Include="IManagedStorage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
