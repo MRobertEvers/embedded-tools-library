@@ -16,14 +16,16 @@
 #include <iostream>
 #include <array>
 //
-Pool::Managed::TStaticManagedMultiPoolSource<Actor::IMessage, Actor::TMessage<4>, 2, 4> p1;
-Pool::Managed::TStaticManagedMultiPoolSource<Actor::IMessage, Actor::TMessage<16>, 2, 16> p2;
-auto pools = make_array<Pool::IManagedMultiPoolSource<Actor::IMessage>*>(&p1, &p2);
+Actor::StaticMessagePoolSource<4, 2> p1;
+Actor::StaticMessagePoolSource<16, 2> p2;
+auto pools = make_array<Actor::IMessagePoolSource*>(&p1, &p2);
 
 static Actor::MessagePool p{ &pools };
 static Actor::Dispatcher dispatcher{ &p };
 
-// Like an interrupt
+// TODO: Use a persistent QUEUE, and put the message into the queue.
+// The interrupt actor can receive from that queue and put it into the system.
+// Like an interrupt - specialize system for Queues.
 void io_thread()
 {
    while( true )
