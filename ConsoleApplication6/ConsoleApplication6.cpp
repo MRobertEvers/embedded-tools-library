@@ -31,6 +31,7 @@ void cli_thread()
 {
    WindowsQueue msgQ{};
    CLIActor a{ &msgQ, &dispatcher };
+   // TODO: Separate registry!
    dispatcher.registerActor(&a);
    while( true )
    {

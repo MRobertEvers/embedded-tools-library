@@ -147,6 +147,7 @@
     <ClCompile Include="IActorQueue.cpp" />
     <ClCompile Include="LogFileActor.cpp" />
     <ClCompile Include="scratch.cpp" />
+    <ClCompile Include="TArray.cpp" />
     <ClCompile Include="WindowsQueue.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -154,12 +155,10 @@
     <ClInclude Include="CLIActor.h" />
     <ClInclude Include="Dispatcher.h" />
     <ClInclude Include="IActorQueue.h" />
-    <ClInclude Include="IAllocator.h" />
     <ClInclude Include="IManagedPool.h" />
     <ClInclude Include="IMessage.h" />
     <ClInclude Include="IPool.h" />
     <ClInclude Include="IQueue.h" />
-    <ClInclude Include="IRandomAccessPool.h" />
     <ClInclude Include="IStack.h" />
     <ClInclude Include="LogFileActor.h" />
     <ClInclude Include="MessageHandle.h" />
@@ -167,10 +166,10 @@
     <ClInclude Include="scratch.h" />
     <ClInclude Include="SourceMap.h" />
     <ClInclude Include="SourceMapPool.h" />
+    <ClInclude Include="TArray.h" />
     <ClInclude Include="TArrayList.h" />
     <ClInclude Include="TArrayListBuffer.h" />
-    <ClInclude Include="TContiguousAllocator.h" />
-    <ClInclude Include="TContiguousBuffer.h" />
+    <ClInclude Include="TAlignedBuffer.h" />
     <ClInclude Include="TManaged.h" />
     <ClInclude Include="TManagedContiguousPool.h" />
     <ClInclude Include="ControlBlock.h" />

@@ -1,12 +1,12 @@
 #pragma once
-#include "TContiguousBuffer.h"
+#include "TAlignedBuffer.h"
 #include <array>
 
 template <typename T, size_t Size>
 class TArrayListBuffer
 {
 public:
-	TContiguousBuffer<T, Size> memory;
+	TAlignedBuffer<T, Size> memory;
 	std::array<int, Size> queue;
 	std::array<int, Size> map;
 };

@@ -39,10 +39,8 @@ void scratch()
       std::cout << messageBuf[119].object.destAddr;
    }
 
-   TContiguousBuffer<std::string, 12> memory;
-   std::array<int, 12> stackBuf;
-   std::array<int, 12> listBuf;
-   TArrayList<std::string> list(&memory, &stackBuf, &listBuf);
+   TArrayListBuffer<std::string, 120> listBuf;
+   TArrayList<std::string> list(&listBuf);
 
    list.emplace("wowow");
 

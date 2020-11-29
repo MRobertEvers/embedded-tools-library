@@ -1,7 +1,7 @@
 #pragma once
 
 #include "TStack.h"
-#include "IRandomAccessPool.h"
+#include "IPool.h"
 #include "TContiguousPoolBuffer.h"
 
 #include <array>

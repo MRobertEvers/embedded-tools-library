@@ -2,7 +2,6 @@
 #include "IManagedPool.h"
 #include "TContiguousPool.h"
 #include "TManagedContiguousPool.h"
-#include "TContiguousAllocator.h"
 #include "TArrayList.h"
 
 #include "SourceMap.h"
