@@ -17,6 +17,10 @@ public:
 
 	virtual void release(IManagedStorage<Interface> const* item) override
 	{
+		// This is normally NOT a safe conversion. We will run into issues if the returned item
+		// is not from this pool. 
+		// Example why
+		// https://stackoverflow.com/questions/4605633/c-converting-a-container-to-a-container-of-different-yet-compatible-type
 		return m_pool.release(static_cast<TManagedStorage<T> const*>((void*)item));
 	};
 
