@@ -11,6 +11,7 @@ template <size_t Size>
 class TMessage : public IMessage
 {
 public:
+
 	// Inherited via IMessage
 	void build(int dest, int resp, int type, char* data, int size) override;
 
@@ -32,12 +33,10 @@ public:
 	//	new (buffer) T(std::forward<Args>(args)...);
 	//}
 
-	short destAddr;
-	short replyAddr;
-	short messageType;
-	char buffer[Size];
-
-
+	short destAddr = 0;
+	short replyAddr = 0;
+	short messageType = 0;
+	char buffer[Size] = { 0 };
 };
 
 template<size_t Size>

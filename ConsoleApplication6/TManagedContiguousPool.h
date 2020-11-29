@@ -1,7 +1,7 @@
 #pragma once
 #include "TContiguousPool.h"
 #include "TManagedContiguousPoolBuffer.h"
-#include "TManaged.h"
+#include "TManagedPtr.h"
 #include "IManagedPool.h"
 #include "TManagedStorage.h"
 
@@ -30,18 +30,22 @@ public:
    {
    };
 
-   TManaged<T> acquire()
+   TManagedPtr<T> acquire()
    {
       if( m_pool.numAvailable() == 0 )
       {
-         return TManaged<T>{ nullptr };
+         return TManagedPtr<T>{ nullptr };
       }
       else
       {
-         return TManaged<T>{ &m_pool };
+         return TManagedPtr<T>{ &m_pool };
       }
    }
 
+   int allocated()
+   {
+      return m_pool.size() - m_pool.numAvailable();
+   }
 private:
    TContiguousPool<TManagedStorage<T>> m_pool;
 };

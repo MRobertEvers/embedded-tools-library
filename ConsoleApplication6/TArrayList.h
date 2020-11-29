@@ -44,6 +44,20 @@ public:
 		return &m_buf[order[i]];
 	}
 
+	T* operator[](int i)
+	{
+		return at(i);
+	}
+
+	T* back()
+	{
+		if( m_size == 0 )
+		{
+			return nullptr;
+		}
+		return at(m_size-1);
+	}
+
 	void pop(int i = -1)
 	{
 		if( i >= m_size )

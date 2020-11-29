@@ -13,7 +13,7 @@
 #include <iostream>
 #include <array>
 //
-static Actor::MessagePool::MessageMultiPool p;
+static MessageMultiPool p;
 static Dispatcher dispatcher(&p);
 
 // Like an interrupt
@@ -23,7 +23,7 @@ void io_thread()
    {
       char buf[50] = { 0 };
       std::cin.getline(buf, sizeof(buf));
-      dispatcher.sendMessage(1, 0, 1, buf, sizeof(buf));
+      dispatcher.sendMessage(1, 0, 1, buf, strlen(buf));
    }
 }
 

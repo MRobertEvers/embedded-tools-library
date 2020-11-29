@@ -1,6 +1,6 @@
 #pragma once
 #include "ActorModel.h"
-#include "MessageHandle.h"
+#include "MessageMultiPool.h"
 #include "Dispatcher.h"
 
 class CLIActor : public Actor::ActorModel 
@@ -14,7 +14,7 @@ public:
 	bool subscribed(int msgType);
 
 protected:
-	void handleMessage(Actor::MessageHandle msg);
+	void handleMessage(ManagedMessagePtr msg);
 
 private:
 	Dispatcher* dispatcher;

@@ -1,6 +1,6 @@
 #pragma once
 #include "IManagedPool.h"
-#include "MessageHandle.h"
+#include "MessageMultiPool.h"
 #include "ActorModel.h"
 
 #include <vector>
@@ -8,7 +8,7 @@
 class Dispatcher
 {
 public:
-	Dispatcher(Pool::Managed::IManagedPool<Actor::MessageHandle, Actor::MessageHandle>* pool)
+	Dispatcher(MessageMultiPool* pool)
 		: m_pool(pool)
 	{
 
@@ -23,6 +23,6 @@ public:
 
 private:
 	std::vector<Actor::ActorModel*> m_actors;
-	Pool::Managed::IManagedPool<Actor::MessageHandle, Actor::MessageHandle>* m_pool;
+	MessageMultiPool* m_pool;
 };
 

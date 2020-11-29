@@ -7,15 +7,6 @@
 #include <iostream>
 #include <array>
 
-void tpool()
-{
-   Actor::MessagePool::MessageMultiPool pool;
-
-   {
-      auto item = pool.acquire();
-   }
-}
-
 void scratch()
 {
    std::array<int, 120u> messageQ;
@@ -36,5 +27,4 @@ void scratch()
 
    std::cout << *list.at(0);
 
-   tpool();
 }

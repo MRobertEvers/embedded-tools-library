@@ -1,5 +1,5 @@
 #pragma once
-#include "MessageHandle.h"
+#include "MessageMultiPool.h"
 #include "IActorQueue.h"
 namespace Actor
 {
@@ -13,7 +13,7 @@ public:
 
 	virtual bool subscribed(int msgType) = 0;
 
-	void postMessage(MessageHandle msg)
+	void postMessage(ManagedMessagePtr msg)
 	{
 		m_pQ->putMessage(msg);
 	}
@@ -26,7 +26,7 @@ public:
 	}
 
 protected:
-	virtual void handleMessage(MessageHandle msg) = 0;
+	virtual void handleMessage(ManagedMessagePtr msg) = 0;
 
 private:
 	IActorQueue* m_pQ;

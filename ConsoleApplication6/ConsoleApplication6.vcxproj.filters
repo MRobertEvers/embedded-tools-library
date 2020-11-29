@@ -72,6 +72,9 @@
     <ClCompile Include="LogFileActor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MessageMultiPool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IQueue.h">
@@ -95,9 +98,6 @@
     <ClInclude Include="ControlBlock.h">
       <Filter>Header Files\Pool\Managed</Filter>
     </ClInclude>
-    <ClInclude Include="TManaged.h">
-      <Filter>Header Files\Pool\Managed</Filter>
-    </ClInclude>
     <ClInclude Include="TManagedContiguousPool.h">
       <Filter>Header Files\Pool\Managed</Filter>
     </ClInclude>
@@ -118,18 +118,6 @@
     </ClInclude>
     <ClInclude Include="IManagedPool.h">
       <Filter>Header Files\Pool\Managed</Filter>
-    </ClInclude>
-    <ClInclude Include="SourceMapPool.h">
-      <Filter>Header Files\MessagePool</Filter>
-    </ClInclude>
-    <ClInclude Include="SourceMap.h">
-      <Filter>Header Files\MessagePool</Filter>
-    </ClInclude>
-    <ClInclude Include="MessageHandle.h">
-      <Filter>Header Files\MessagePool</Filter>
-    </ClInclude>
-    <ClInclude Include="MessageMultiPool.h">
-      <Filter>Header Files\MessagePool</Filter>
     </ClInclude>
     <ClInclude Include="Dispatcher.h">
       <Filter>Header Files</Filter>
@@ -163,6 +151,12 @@
     </ClInclude>
     <ClInclude Include="TAlignedBuffer.h">
       <Filter>Header Files\Allocators</Filter>
+    </ClInclude>
+    <ClInclude Include="MessageMultiPool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TManagedPtr.h">
+      <Filter>Header Files\Pool\Managed</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

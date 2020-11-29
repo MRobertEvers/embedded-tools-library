@@ -146,6 +146,7 @@
     <ClCompile Include="Dispatcher.cpp" />
     <ClCompile Include="IActorQueue.cpp" />
     <ClCompile Include="LogFileActor.cpp" />
+    <ClCompile Include="MessageMultiPool.cpp" />
     <ClCompile Include="scratch.cpp" />
     <ClCompile Include="WindowsQueue.cpp" />
   </ItemGroup>
@@ -160,15 +161,12 @@
     <ClInclude Include="IQueue.h" />
     <ClInclude Include="IStack.h" />
     <ClInclude Include="LogFileActor.h" />
-    <ClInclude Include="MessageHandle.h" />
     <ClInclude Include="MessageMultiPool.h" />
     <ClInclude Include="scratch.h" />
-    <ClInclude Include="SourceMap.h" />
-    <ClInclude Include="SourceMapPool.h" />
     <ClInclude Include="TArrayList.h" />
     <ClInclude Include="TArrayListBuffer.h" />
     <ClInclude Include="TAlignedBuffer.h" />
-    <ClInclude Include="TManaged.h" />
+    <ClInclude Include="TManagedPtr.h" />
     <ClInclude Include="TManagedContiguousPool.h" />
     <ClInclude Include="ControlBlock.h" />
     <ClInclude Include="TManagedContiguousPoolBuffer.h" />

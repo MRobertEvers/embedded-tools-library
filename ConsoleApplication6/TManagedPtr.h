@@ -1,5 +1,5 @@
 #pragma once
-#include "ControlBlock.h"
+
 #include "IPool.h"
 #include "TManagedStorage.h"
 
@@ -7,22 +7,22 @@ namespace Pool::Managed
 {
 // TODO: Restrict to pointer types?
 template <typename T>
-class TManaged
+class TManagedPtr
 {
 public:
 	// TODO: I Don't like default constructor.
-	TManaged()
+	TManagedPtr()
 		: m_pool(nullptr), m_item(nullptr)
 	{
 	}
 
-	TManaged(IPool<TManagedStorage<T>>* pool)
+	TManagedPtr(IPool<TManagedStorage<T>>* pool)
 		: m_pool(pool), m_item(pool->acquire())
 	{
 		m_item->control.incRef();
 	}
 
-	TManaged(const TManaged& cpy)
+	TManagedPtr(const TManagedPtr& cpy)
 	{
 		m_item = cpy.m_item;
 		m_pool = cpy.m_pool;
@@ -30,7 +30,7 @@ public:
 		m_item->control.incRef();
 	}
 
-	~TManaged()
+	~TManagedPtr()
 	{
 		if( m_item->control.count() > 0 )
 		{
