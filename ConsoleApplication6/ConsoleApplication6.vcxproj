@@ -147,7 +147,6 @@
     <ClCompile Include="IActorQueue.cpp" />
     <ClCompile Include="LogFileActor.cpp" />
     <ClCompile Include="scratch.cpp" />
-    <ClCompile Include="TArray.cpp" />
     <ClCompile Include="WindowsQueue.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -166,7 +165,6 @@
     <ClInclude Include="scratch.h" />
     <ClInclude Include="SourceMap.h" />
     <ClInclude Include="SourceMapPool.h" />
-    <ClInclude Include="TArray.h" />
     <ClInclude Include="TArrayList.h" />
     <ClInclude Include="TArrayListBuffer.h" />
     <ClInclude Include="TAlignedBuffer.h" />

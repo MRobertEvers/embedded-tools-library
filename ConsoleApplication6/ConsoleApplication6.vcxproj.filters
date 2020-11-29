@@ -72,9 +72,6 @@
     <ClCompile Include="LogFileActor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TArray.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IQueue.h">
@@ -163,9 +160,6 @@
     </ClInclude>
     <ClInclude Include="TArrayListBuffer.h">
       <Filter>Header Files\List</Filter>
-    </ClInclude>
-    <ClInclude Include="TArray.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="TAlignedBuffer.h">
       <Filter>Header Files\Allocators</Filter>

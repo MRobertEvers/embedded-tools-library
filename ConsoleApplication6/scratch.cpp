@@ -18,16 +18,6 @@ void tpool()
 
 void scratch()
 {
-   std::array<int, 120u> q = { 0 };
-   std::array<int, 120u> buffer;
-   Pool::TContiguousPool<int> smallPool(&buffer, &q);
-
-   auto myInt = smallPool.acquire();
-   *myInt = 5;
-
-   std::cout << "Hello World!\n";
-   std::cout << buffer[119] << "\n";
-
    std::array<int, 120u> messageQ;
    std::array<Pool::Managed::TManagedStorage<Actor::TMessage<32>>, 120u> messageBuf;
    Pool::Managed::TManagedContiguousPool<Actor::TMessage<32>> messagePool(&messageBuf, &messageQ);
