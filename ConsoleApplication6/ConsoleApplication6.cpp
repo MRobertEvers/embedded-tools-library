@@ -18,7 +18,8 @@
 //
 Actor::StaticMessagePoolSource<4, 2> p1;
 Actor::StaticMessagePoolSource<16, 2> p2;
-auto pools = make_array<Actor::IMessagePoolSource*>(&p1, &p2);
+Actor::StaticMessagePoolSource<64, 2> p3;
+auto pools = make_array<Actor::IMessagePoolSource*>(&p1, &p2, &p3);
 
 static Actor::MessagePool p{ &pools };
 static Actor::Dispatcher dispatcher{ &p };
@@ -28,6 +29,10 @@ static Actor::Dispatcher dispatcher{ &p };
 // Like an interrupt - specialize system for Queues.
 void io_thread()
 {
+   std::cout << '\n';
+   std::cout << sizeof(p1) - 76 << '\n';
+   std::cout << sizeof(p2) - 76 << '\n';
+   std::cout << sizeof(p3) - 76 << '\n';
    while( true )
    {
       char buf[50] = { 0 };

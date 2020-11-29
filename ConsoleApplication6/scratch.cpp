@@ -32,6 +32,11 @@ void scratch()
 
    std::cout << *list.at(0);
 
+   for( auto arr : list )
+   {
+      std::cout << arr;
+   }
+
    Pool::TStaticMultiPoolSource<Actor::IMessage, Actor::TMessage<4>, 120, 4> smallpool;
    Pool::TStaticMultiPoolSource<Actor::IMessage, Actor::TMessage<16>, 120, 16> medpool;
    auto arr = make_array<Pool::IMultiPoolSource<Actor::IMessage>*>(&smallpool, &medpool);

@@ -23,7 +23,7 @@ public:
 		return m_count;
 	}
 private:
-	int m_count = 0;
+	unsigned short m_count = 0;
 };
 
 }

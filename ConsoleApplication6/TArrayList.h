@@ -118,3 +118,15 @@ private:
 	int m_size;
 };
 
+template <typename T>
+T* begin(TArrayList<T>& list)
+{
+	return list.at(0);
+}
+
+template <typename T>
+T* end(TArrayList<T>& list)
+{
+	return list.back() + 1;
+}
+
