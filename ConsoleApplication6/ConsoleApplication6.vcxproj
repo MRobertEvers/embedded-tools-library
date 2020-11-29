@@ -144,9 +144,9 @@
     <ClCompile Include="CLIActor.cpp" />
     <ClCompile Include="ConsoleApplication6.cpp" />
     <ClCompile Include="Dispatcher.cpp" />
-    <ClCompile Include="IActorQueue.cpp" />
-    <ClCompile Include="IManagedStorage.cpp" />
     <ClCompile Include="LogFileActor.cpp" />
+    <ClCompile Include="MessagePool.cpp" />
+    <ClCompile Include="MessagePtr.cpp" />
     <ClCompile Include="scratch.cpp" />
     <ClCompile Include="WindowsQueue.cpp" />
   </ItemGroup>
@@ -166,6 +166,8 @@
     <ClInclude Include="IStack.h" />
     <ClInclude Include="LogFileActor.h" />
     <ClInclude Include="make_array.h" />
+    <ClInclude Include="MessagePool.h" />
+    <ClInclude Include="MessagePtr.h" />
     <ClInclude Include="scratch.h" />
     <ClInclude Include="TArrayList.h" />
     <ClInclude Include="TArrayListBuffer.h" />

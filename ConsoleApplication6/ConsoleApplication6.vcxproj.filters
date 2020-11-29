@@ -60,9 +60,6 @@
     <ClCompile Include="WindowsQueue.cpp">
       <Filter>Source Files\Actor</Filter>
     </ClCompile>
-    <ClCompile Include="IActorQueue.cpp">
-      <Filter>Source Files\Actor</Filter>
-    </ClCompile>
     <ClCompile Include="Dispatcher.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -78,7 +75,10 @@
     <ClCompile Include="ActorModel.cpp">
       <Filter>Source Files\Actor</Filter>
     </ClCompile>
-    <ClCompile Include="IManagedStorage.cpp">
+    <ClCompile Include="MessagePool.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MessagePtr.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -126,9 +126,6 @@
       <Filter>Header Files\Pool\Managed</Filter>
     </ClInclude>
     <ClInclude Include="Dispatcher.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ActorModel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CLIActor.h">
@@ -194,8 +191,17 @@
     <ClInclude Include="IManagedMultiPoolSource.h">
       <Filter>Header Files\Pool\MultiPool\Managed</Filter>
     </ClInclude>
-    <ClInclude Include="IManagedStorage.h">
+    <ClInclude Include="MessagePool.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IManagedStorage.h">
+      <Filter>Header Files\Pool\Managed</Filter>
+    </ClInclude>
+    <ClInclude Include="MessagePtr.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ActorModel.h">
+      <Filter>Header Files\Actor</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

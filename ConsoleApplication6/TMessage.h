@@ -45,6 +45,7 @@ inline void Actor::TMessage<Size>::build(int dest, int resp, int type, char* dat
 	destAddr = dest;
 	replyAddr = resp;
 	messageType = type;
+	memset(buffer, 0x00, sizeof(buffer));
 	memcpy_s(buffer, sizeof(buffer), data, size);
 }
 

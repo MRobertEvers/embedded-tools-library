@@ -19,7 +19,10 @@ public:
 	TManagedPtr(IPool<TManagedStorage<T>>* pool)
 		: m_pool(pool), m_item(pool->acquire())
 	{
-		m_item->getCtrl()->incRef();
+		if( m_item )
+		{
+			m_item->getCtrl()->incRef();
+		}
 	}
 
 	TManagedPtr(const TManagedPtr& cpy)
@@ -27,12 +30,15 @@ public:
 		m_item = cpy.m_item;
 		m_pool = cpy.m_pool;
 
-		m_item->getCtrl()->incRef();
+		if( m_item )
+		{
+			m_item->getCtrl()->incRef();
+		}
 	}
 
 	~TManagedPtr()
 	{
-		if( m_item->getCtrl()->count() > 0 )
+		if( m_item != nullptr && m_item->getCtrl()->count() > 0 )
 		{
 			auto count = m_item->getCtrl()->decRef();
 			if( count == 0 )

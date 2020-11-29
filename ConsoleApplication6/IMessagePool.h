@@ -7,7 +7,7 @@ namespace Actor
 class IMessagePool
 {
 public:
-	virtual MessagePtr acquire() = 0;
+	virtual MessagePtr acquire(size_t size) = 0;
 };
 }
 

@@ -28,7 +28,7 @@ public:
 	{
 		for( size_t i = 0; i < m_sourcesLen; ++i )
 		{
-			if( size < m_sources[i]->objectSize() )
+			if( size <= m_sources[i]->objectSize() )
 			{
 				return m_sources[i]->acquire();
 			}
@@ -41,7 +41,7 @@ public:
 	{
 		for( size_t i = 0; i < m_sourcesLen; ++i )
 		{
-			if( size < m_sources[i]->objectSize() )
+			if( size <= m_sources[i]->objectSize() )
 			{
 				return m_sources[i]->release(item);
 			}
