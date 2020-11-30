@@ -16,14 +16,8 @@
     <Filter Include="Header Files\Pool">
       <UniqueIdentifier>{7c9b03a8-8458-46da-a3de-aa58182524a5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Pool">
-      <UniqueIdentifier>{589a35ca-3c65-40c5-bbdb-cb1875517a2b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\Queue">
       <UniqueIdentifier>{e5289823-98d7-45b5-99af-bae15cd878cf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Queue">
-      <UniqueIdentifier>{1ba13882-37fb-4422-b283-2694589b6b50}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files\Pool\Managed">
       <UniqueIdentifier>{046595f1-1b08-4a0f-957a-545015ec213f}</UniqueIdentifier>
@@ -76,9 +70,6 @@
       <Filter>Source Files\Actor</Filter>
     </ClCompile>
     <ClCompile Include="MessagePool.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MessagePtr.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -9,7 +9,7 @@
 
 namespace Pool
 {
-template <typename T>
+template <typename T, typename SmartPtr = Managed::TManagedMultiPoolPtr<T>>
 class TManagedMultiPool
 {
 public:
@@ -22,9 +22,9 @@ public:
 
 	};
 
-	Managed::TManagedMultiPoolPtr<T> acquire(size_t size)
+	SmartPtr acquire(size_t size)
 	{
-		return Managed::TManagedMultiPoolPtr{ &m_pool, size };
+		return SmartPtr{ &m_pool, size };
 	};
 
 private:

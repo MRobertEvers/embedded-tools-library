@@ -26,7 +26,7 @@ public:
 	MessagePtr acquire(size_t size);
 
 private:
-	Pool::TManagedMultiPool<Actor::IMessage> m_pool;
+	Pool::TManagedMultiPool<Actor::IMessage, MessagePtr> m_pool;
 };
 }
 

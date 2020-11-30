@@ -9,6 +9,9 @@ template <typename T>
 class TManagedMultiPoolPtr
 {
 public:
+	TManagedMultiPoolPtr()
+		: m_pool(nullptr), m_item(nullptr), m_size(0){ }
+
 	TManagedMultiPoolPtr(IMultiPool<Managed::IManagedStorage<T>>* pool, size_t size)
 		: m_pool(pool), m_item(pool->acquire(size)), m_size(size)
 	{
