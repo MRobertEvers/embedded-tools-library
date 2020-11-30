@@ -36,6 +36,7 @@ void io_thread()
    {
       char buf[50] = { 0 };
       std::cin.getline(buf, sizeof(buf));
+      std::cin.clear();
       dispatcher.sendMessage(1, 0, 1, buf, strnlen(buf, sizeof(buf)));
    }
 }
