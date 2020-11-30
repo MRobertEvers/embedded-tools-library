@@ -4,6 +4,7 @@ namespace Actor
 {
 class IMessage
 {
+	// TODO: Probably don't need all of these.
 public:
 	virtual void build(int dest, int resp, int type, char* data, int size) = 0;
 
