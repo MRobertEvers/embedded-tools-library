@@ -11,6 +11,6 @@ public:
 
 	// Inherited via ActorModel
 	virtual bool subscribed(int msgType) override;
-	virtual void handleMessage(Actor::MessagePtr msg) override;
+	virtual void handleMessage(Actor::IMessage* msg) override;
 };
 

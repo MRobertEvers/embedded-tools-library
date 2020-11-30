@@ -1,4 +1,5 @@
 #include "Dispatcher.h"
+#include "TArrayList.h"
 
 #include <algorithm>
 namespace Actor
@@ -14,13 +15,13 @@ void Dispatcher::sendMessage(int dest, int resp, int type, char* data, int size)
 
 	msg->build(dest, resp, type, data, size);
 
-	auto end = std::stable_partition(
-		m_actors.begin(), m_actors.end(),
+	auto receiveEnd = std::stable_partition(
+		begin(m_actors), end(m_actors),
 		[&msg](auto actor) { return actor->subscribed(msg->type()); });
 
-	for( auto iter = m_actors.begin(); iter != end; ++iter )
+	for( auto iter = begin(m_actors); iter != receiveEnd; ++iter )
 	{
-		if( iter != end - 1 )
+		if( iter != receiveEnd - 1 )
 		{
 			(*iter)->postMessage(msg.clone());
 		}

@@ -22,11 +22,11 @@ public:
 	{
 		auto msg = m_pQ->getMessage();
 
-		handleMessage(msg);
+		handleMessage(msg.operator->());
 	}
 
 protected:
-	virtual void handleMessage(Actor::MessagePtr msg) = 0;
+	virtual void handleMessage(Actor::IMessage* msg) = 0;
 
 private:
 	IActorQueue* m_pQ;

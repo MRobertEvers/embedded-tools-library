@@ -43,8 +43,6 @@ public:
 
    int getItemIndex(T const* item);
 
-   int getNextAvailableIndex();
-
 private:
    int acquireNextIndex();
 
@@ -55,6 +53,7 @@ private:
 template<typename T>
 inline T* TContiguousPool<T>::acquire()
 {
+   // TODO: Synchronized version lock here.
    auto next = acquireNextIndex();
    if( next == -1 )
    {
@@ -69,13 +68,8 @@ inline T* TContiguousPool<T>::acquire()
 template<typename T>
 inline void TContiguousPool<T>::release(T const* item)
 {
+   // TODO: Synchronized version lock here.
    m_q.push(getItemIndex(item));
-}
-
-template<typename T>
-inline int TContiguousPool<T>::getNextAvailableIndex()
-{
-   return m_q.peek();
 }
 
 template<typename T>

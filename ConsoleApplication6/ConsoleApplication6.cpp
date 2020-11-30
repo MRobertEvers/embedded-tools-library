@@ -11,14 +11,15 @@
 #include "make_array.h"
 #include "TStaticManagedMultiPoolSource.h"
 #include "TMessage.h"
+#include "MessagePtr.h"
 
 #include <thread>
 #include <iostream>
 #include <array>
-//
-Actor::StaticMessagePoolSource<4, 2> p1;
-Actor::StaticMessagePoolSource<16, 2> p2;
-Actor::StaticMessagePoolSource<64, 2> p3;
+// TODO: Technically, these pools need to be synchonized...
+Actor::StaticMessagePoolSource<4, 1> p1;
+Actor::StaticMessagePoolSource<16, 0> p2;
+Actor::StaticMessagePoolSource<64, 0> p3;
 auto pools = make_array<Actor::IMessagePoolSource*>(&p1, &p2, &p3);
 
 static Actor::MessagePool p{ &pools };
@@ -30,9 +31,10 @@ static Actor::Dispatcher dispatcher{ &p };
 void io_thread()
 {
    std::cout << '\n';
-   std::cout << sizeof(p1) - 76 << '\n';
-   std::cout << sizeof(p2) - 76 << '\n';
-   std::cout << sizeof(p3) - 76 << '\n';
+   std::cout << sizeof(Actor::MessagePtr) << '\n';
+   std::cout << sizeof(p1) << '\n';
+   std::cout << sizeof(p2) << '\n';
+   std::cout << sizeof(p3) << '\n';
    while( true )
    {
       char buf[50] = { 0 };

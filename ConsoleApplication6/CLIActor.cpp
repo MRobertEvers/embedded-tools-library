@@ -7,7 +7,7 @@ bool CLIActor::subscribed(int msgType)
 	return msgType == 1;
 }
 
-void CLIActor::handleMessage(Actor::MessagePtr msg)
+void CLIActor::handleMessage(Actor::IMessage* msg)
 {
 	std::string sz(static_cast<char*>(msg->data()), msg->size());
 

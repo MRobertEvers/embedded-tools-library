@@ -13,7 +13,7 @@ public:
 	bool subscribed(int msgType);
 
 protected:
-	void handleMessage(Actor::MessagePtr msg);
+	void handleMessage(Actor::IMessage* msg);
 
 private:
 	Actor::Dispatcher* dispatcher;

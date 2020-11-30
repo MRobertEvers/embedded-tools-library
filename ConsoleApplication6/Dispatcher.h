@@ -2,7 +2,7 @@
 #include "IMessagePool.h"
 #include "ActorModel.h"
 
-#include <vector>
+#include "TArrayList.h"
 
 namespace Actor
 {
@@ -10,7 +10,7 @@ class Dispatcher
 {
 public:
 	Dispatcher(IMessagePool* pool)
-		: m_pool(pool)
+		: m_actors(&m_actorBuffer), m_pool(pool)
 	{
 
 	};
@@ -19,11 +19,12 @@ public:
 
 	void registerActor(ActorModel* act)
 	{
-		m_actors.push_back(act);
+		m_actors.emplace(act);
 	}
 
 private:
-	std::vector<Actor::ActorModel*> m_actors;
+	TArrayListBuffer<Actor::ActorModel*, 10> m_actorBuffer;
+	TArrayList<Actor::ActorModel*> m_actors;
 	IMessagePool* m_pool;
 };
 }

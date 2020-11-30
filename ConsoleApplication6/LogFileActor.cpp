@@ -9,7 +9,7 @@ bool LogFileActor::subscribed(int msgType)
 	return msgType == 2;
 }
 
-void LogFileActor::handleMessage(Actor::MessagePtr msg)
+void LogFileActor::handleMessage(Actor::IMessage* msg)
 {
 	std::ofstream file("dump.txt");
 

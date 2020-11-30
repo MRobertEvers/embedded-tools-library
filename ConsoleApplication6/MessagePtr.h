@@ -6,6 +6,8 @@ namespace Actor
 {
 class MessagePtr
 {
+	// TODO: Allow passing of static events.
+	// TODO: Allow raw pointer to an event for CONSTANT;
 public:
 	MessagePtr(Pool::Managed::TManagedMultiPoolPtr<IMessage> ptr)
 		: msg(ptr)
