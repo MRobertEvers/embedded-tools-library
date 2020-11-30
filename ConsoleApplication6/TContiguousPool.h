@@ -28,6 +28,8 @@ public:
    {
    };
 
+   virtual ~TContiguousPool(){}
+
    T* acquire() override;
    void release(T const* item) override;
 

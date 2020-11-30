@@ -10,6 +10,8 @@ public:
    {
    };
 
+   virtual ~TStack(){ }
+
    bool push(const T& item) override;
    void pop() override;
    T peek() override;

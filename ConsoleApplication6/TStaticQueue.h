@@ -10,6 +10,8 @@ public:
    {
    };
 
+   virtual ~TStaticQueue(){ }
+
 private:
    T m_pBuf[Size];
 };

@@ -14,6 +14,7 @@ public:
 	{
 	};
 
+	virtual ~TStaticContiguousPool(){ }
 private:
 	Resource::TContiguousPoolBuffer<T, Size> buffer;
 };

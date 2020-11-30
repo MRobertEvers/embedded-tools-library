@@ -12,6 +12,8 @@ public:
    {
    };
 
+   virtual ~TQueue(){ }
+
    bool push(const T& item) override;
    T pop() override;
 

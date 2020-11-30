@@ -30,6 +30,8 @@ public:
    {
    };
 
+   virtual ~TManagedContiguousPool(){ }
+
    TManagedPtr<T> acquire()
    {
       if( m_pool.numAvailable() == 0 )
