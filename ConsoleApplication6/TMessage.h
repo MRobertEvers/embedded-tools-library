@@ -15,14 +15,14 @@ public:
 	// Inherited via IMessage
 	void build(int dest, int resp, int type, char* data, int size) override;
 
-	int sendTo() override;
-	int replyTo() override;
-	int type() override;
-	int size() override
+	int sendTo() const override;
+	int replyTo() const override;
+	int type() const override;
+	int size() const override
 	{
 		return Size;
 	};
-	void* data() override;
+	void const* data() const override;
 
 	//template<typename T, typename... Args>
 	//void construct(Args&&... args);
@@ -50,25 +50,25 @@ inline void Actor::TMessage<Size>::build(int dest, int resp, int type, char* dat
 }
 
 template<size_t Size>
-inline int TMessage<Size>::sendTo()
+inline int TMessage<Size>::sendTo() const
 {
 	return destAddr;
 }
 
 template<size_t Size>
-inline int TMessage<Size>::replyTo()
+inline int TMessage<Size>::replyTo() const
 {
 	return replyAddr;
 }
 
 template<size_t Size>
-inline int TMessage<Size>::type()
+inline int TMessage<Size>::type() const
 {
 	return messageType;
 }
 
 template<size_t Size>
-inline void* TMessage<Size>::data()
+inline void const* TMessage<Size>::data() const
 {
 	return buffer;
 }

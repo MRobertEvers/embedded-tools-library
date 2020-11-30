@@ -9,11 +9,11 @@ bool LogFileActor::subscribed(int msgType)
 	return msgType == 2;
 }
 
-void LogFileActor::handleMessage(Actor::IMessage* msg)
+void LogFileActor::handleMessage(Actor::IMessage const* msg)
 {
 	std::ofstream file("dump.txt");
 
-	std::string sz(static_cast<char*>(msg->data()), msg->size());
+	std::string sz(static_cast<char const*>(msg->data()), msg->size());
 	std::cout << "[LogFileActor] " << sz << '\n';
 
 	file << std::string((char*)msg->data(), msg->size()) << '\n';

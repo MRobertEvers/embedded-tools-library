@@ -52,16 +52,20 @@ public:
 		return m_pool != nullptr ? m_item.poolMsg->getPtr() : m_item.staticMsg;
 	};
 
-	bool ok()
+	bool ok() const
 	{
 		return m_item.poolMsg != nullptr || m_item.staticMsg != nullptr;
 	};
 
-	MessagePtr clone()
+	MessagePtr clone() const
 	{
 		MessagePtr item = MessagePtr{ m_pool, m_size };
 
-		memcpy(item.operator->(), m_item.poolMsg->getPtr(), sizeof(*m_item.poolMsg->getPtr()));
+		// TODO: Fix this const cast?
+		memcpy(
+			item.operator->(),
+			m_item.poolMsg->getPtr(), 
+			sizeof(*m_item.poolMsg->getPtr()));
 
 		return item;
 	}

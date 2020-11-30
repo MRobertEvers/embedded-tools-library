@@ -8,11 +8,11 @@ class IMessage
 public:
 	virtual void build(int dest, int resp, int type, char* data, int size) = 0;
 
-	virtual int sendTo() = 0;
-	virtual int replyTo() = 0;
-	virtual int type() = 0;
-	virtual int size() = 0;
-	virtual void* data() = 0;
+	virtual int sendTo() const = 0;
+	virtual int replyTo() const = 0;
+	virtual int type() const = 0;
+	virtual int size() const = 0;
+	virtual void const* data() const = 0;
 };
 }
 

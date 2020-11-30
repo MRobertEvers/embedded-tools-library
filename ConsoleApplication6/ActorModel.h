@@ -26,7 +26,7 @@ public:
 	}
 
 protected:
-	virtual void handleMessage(Actor::IMessage* msg) = 0;
+	virtual void handleMessage(Actor::IMessage const* msg) = 0;
 
 private:
 	IActorQueue* m_pQ;

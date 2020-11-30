@@ -7,9 +7,9 @@ bool CLIActor::subscribed(int msgType)
 	return msgType == 1;
 }
 
-void CLIActor::handleMessage(Actor::IMessage* msg)
+void CLIActor::handleMessage(Actor::IMessage const* msg)
 {
-	std::string sz(static_cast<char*>(msg->data()), msg->size());
+	std::string sz(static_cast<char const*>(msg->data()), msg->size());
 
 	std::cout << "[CLIActor] " << sz << '\n';
 
