@@ -6,12 +6,12 @@ template <typename T, size_t Size>
 class TStaticQueue : public TQueue<T>
 {
 public:
-   TStaticQueue() : TQueue(m_pBuf, Size)
+   TStaticQueue() : TQueue(buf_, Size)
    {
    };
 
    virtual ~TStaticQueue(){ }
 
 private:
-   T m_pBuf[Size];
+   T buf_[Size];
 };

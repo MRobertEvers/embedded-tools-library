@@ -1,32 +1,28 @@
 #pragma once
-#include "TManagedMultiPool.h"
 #include "IMessage.h"
 #include "IMessagePool.h"
-#include "MessagePtr.h"
-#include "IManagedMultiPoolSource.h"
-#include "TStaticManagedMultiPoolSource.h"
 #include "TMessage.h"
+#include "TMultiPool.h"
+#include "TStaticMultiPoolSource.h"
 
 namespace Actor
 {
-template <size_t MessageSize, size_t NumMessages>
-using StaticMessagePoolSource = Pool::Managed::TStaticManagedMultiPoolSource<Actor::IMessage, Actor::TMessage<MessageSize>, NumMessages, MessageSize>;
+template <size_t MessageSize, size_t Count>
+using MessagePoolSource = Pool::TStaticMultiPoolSource<Actor::IMessage, Actor::TMessage<MessageSize>, Count, MessageSize>;
 
-using IMessagePoolSource = Pool::IManagedMultiPoolSource<Actor::IMessage>;
+using IMessagePoolSource = Pool::IMultiPoolSource<IMessage>;
 
 class MessagePool : public IMessagePool
 {
 public:
 	template <size_t Size>
-	MessagePool(std::array<IMessagePoolSource*, Size>* sources) : m_pool(sources)
-	{
+	MessagePool(std::array<IMessagePoolSource*, Size>* sources) : pool_(sources) {};
 
-	};
-
-	MessagePtr acquire(size_t size);
+	IMessage* acquire(size_t size);
+	void release(IMessage const* msg);
 
 private:
-	Pool::TManagedMultiPool<Actor::IMessage, MessagePtr> m_pool;
+	Pool::TMultiPool<Actor::IMessage> pool_;
 };
 }
 

@@ -6,30 +6,30 @@ namespace Actor
 class ActorModel
 {
 public:
-	ActorModel(IActorQueue* q) : m_pQ(q)
+	ActorModel(IActorQueue* q) : q_(q)
 	{
 
 	}
 
 	virtual bool subscribed(int msgType) = 0;
 
-	void postMessage(Actor::MessagePtr msg)
+	void postMessage(MessageHandle msg)
 	{
-		m_pQ->putMessage(msg);
+		q_->putMessage(msg);
 	}
 
 	void process()
 	{
-		auto msg = m_pQ->getMessage();
+		auto msg = q_->getMessage();
 
 		handleMessage(msg.operator->());
 	}
 
 protected:
-	virtual void handleMessage(Actor::IMessage const* msg) = 0;
+	virtual void handleMessage(IMessage const* msg) = 0;
 
 private:
-	IActorQueue* m_pQ;
+	IActorQueue* q_;
 };
 }
 

@@ -9,9 +9,8 @@
 #include "LogFileActor.h"
 #include "WindowsQueue.h"
 #include "make_array.h"
-#include "TStaticManagedMultiPoolSource.h"
 #include "TMessage.h"
-#include "MessagePtr.h"
+#include "TStaticMultiPoolSource.h"
 
 #include <thread>
 #include <iostream>
@@ -19,10 +18,9 @@
 
 // TODO: Technically, these pools need to be synchronized...
 // TODO: Delete the destructor to force these to be static duration?
-Actor::StaticMessagePoolSource<4, 2> p1;
-Actor::StaticMessagePoolSource<16, 2> p2;
-Actor::StaticMessagePoolSource<64, 2> p3;
-auto pools = make_array<Actor::IMessagePoolSource*>(&p1, &p2, &p3);
+static Actor::MessagePoolSource<4, 2> p1;
+static Actor::MessagePoolSource<16, 2> p2;
+static auto pools = make_array<Actor::IMessagePoolSource*>(&p1, &p2);
 
 static Actor::MessagePool p{ &pools };
 static Actor::Dispatcher dispatcher{ &p };
@@ -37,7 +35,7 @@ void io_thread()
       char buf[50] = { 0 };
       std::cin.getline(buf, sizeof(buf));
       std::cin.clear();
-      dispatcher.sendMessage(1, 0, 1, buf, strnlen(buf, sizeof(buf)));
+      dispatcher.sendMessage(1, buf, strnlen(buf, sizeof(buf)));
    }
 }
 
@@ -66,7 +64,7 @@ void log_thread()
 
 int main()
 {
-   scratch();
+   // scratch();
     std::thread t1(&io_thread);
     std::thread t2(&cli_thread);
     std::thread t3(&log_thread);

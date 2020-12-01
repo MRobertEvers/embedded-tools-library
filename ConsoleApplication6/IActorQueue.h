@@ -1,5 +1,5 @@
 #pragma once
-#include "MessagePtr.h"
+#include "MessageHandle.h"
 
 namespace Actor
 {
@@ -7,8 +7,8 @@ namespace Actor
 class IActorQueue
 {
 public:
-	virtual void putMessage(MessagePtr msg) = 0;
-	virtual MessagePtr getMessage() = 0;
+	virtual void putMessage(MessageHandle msg) = 0;
+	virtual MessageHandle getMessage() = 0;
 };
 }
 

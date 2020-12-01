@@ -24,6 +24,8 @@ public:
 		});
 	};
 
+	virtual ~TMultiPool(){ }
+
 	virtual T* acquire(size_t size) override
 	{
 		for( size_t i = 0; i < m_sourcesLen; ++i )

@@ -6,7 +6,7 @@ class TStack : public IStack<T>
 {
 public:
    TStack(T* buffer, int size)
-      : m_pBuf(buffer), m_size(size)
+      : buf_(buffer), size_(size)
    {
    };
 
@@ -18,28 +18,28 @@ public:
 
    size_t capacity() override
    {
-      return m_size;
+      return size_;
    }
 
    size_t count() override
    {
-      return m_top;
+      return top_;
    }
 
 private:
-   T* m_pBuf;
-   int m_size = 0;
-   int m_top = 0;
+   T* buf_;
+   int size_ = 0;
+   int top_ = 0;
 };
 
 
 template<typename T>
 bool TStack<T>::push(const T& item)
 {
-   if( m_top < m_size )
+   if( top_ < size_ )
    {
-      m_pBuf[m_top] = item;
-      m_top += 1;
+      buf_[top_] = item;
+      top_ += 1;
 
       return true;
    }
@@ -50,9 +50,9 @@ bool TStack<T>::push(const T& item)
 template<typename T>
 void TStack<T>::pop()
 {
-   if( m_top > 0 )
+   if( top_ > 0 )
    {
-      m_top -= 1;
+      top_ -= 1;
    }
 
 }
@@ -60,7 +60,7 @@ void TStack<T>::pop()
 template<typename T>
 T TStack<T>::peek()
 {
-   auto item = m_pBuf[m_top - 1];
+   auto item = buf_[top_ - 1];
 
    return item;
 }

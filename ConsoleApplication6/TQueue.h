@@ -8,7 +8,7 @@ class TQueue : public IQueue<T>
 {
 public:
    TQueue(T* buffer, int size) 
-      : m_pBuf(buffer), m_size(size)
+      : buf_(buffer), size_(size)
    {
    };
 
@@ -19,13 +19,13 @@ public:
 
    size_t capacity() override
    {
-      return m_size;
+      return size_;
    }
 
    size_t count() override;
 private:
-   T* m_pBuf;
-   int m_size = 0;
+   T* buf_;
+   int size_ = 0;
    int m_head = 0;
    int m_tail = 0;
    bool m_isFull = false;
@@ -36,8 +36,8 @@ bool TQueue<T>::push(const T& item)
 {
    if( !m_isFull )
    {
-      m_pBuf[m_head] = item;
-      m_head = (m_head + 1) % m_size;
+      buf_[m_head] = item;
+      m_head = (m_head + 1) % size_;
       m_isFull = m_head == m_tail;
 
       return true;
@@ -49,13 +49,13 @@ bool TQueue<T>::push(const T& item)
 template<typename T>
 T TQueue<T>::pop()
 {
-   auto item = m_pBuf[m_tail];
+   auto item = buf_[m_tail];
 
    if( m_isFull || m_head != m_tail )
    {
       m_isFull = false;
 
-      m_tail = (m_tail + 1) % m_size;
+      m_tail = (m_tail + 1) % size_;
    }
 
    return item;
@@ -66,10 +66,10 @@ inline size_t TQueue<T>::count()
 {
    if( m_head >= m_tail )
    {
-      return m_isFull ? m_size : (m_head - m_tail);
+      return m_isFull ? size_ : (m_head - m_tail);
    }
    else
    {
-      return m_size - (m_tail - m_head);
+      return size_ - (m_tail - m_head);
    }
 }

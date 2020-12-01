@@ -14,11 +14,11 @@ class TContiguousPool : public IPool<T>
 public:
    template <size_t Size>
    TContiguousPool(std::array<T, Size>* buffer, std::array<int, Size>* control)
-      : m_pBuf(buffer->data()), m_q(control->data(), Size)
+      : buf_(buffer->data()), q_(control->data(), Size)
    {
       for( int i = 0; i < Size; i++ )
       {
-         m_q.push(i);
+         q_.push(i);
       }
    };
 
@@ -35,12 +35,12 @@ public:
 
    int size() override
    {
-      return m_q.capacity();
+      return q_.capacity();
    }
 
    int numAvailable() override
    {
-      return m_q.count();
+      return q_.count();
    }
 
    int getItemIndex(T const* item);
@@ -48,8 +48,8 @@ public:
 private:
    int acquireNextIndex();
 
-   TStack<int> m_q;
-   T* m_pBuf;
+   TStack<int> q_;
+   T* buf_;
 };
 
 template<typename T>
@@ -63,7 +63,7 @@ inline T* TContiguousPool<T>::acquire()
    }
    else
    {
-      return &m_pBuf[next];
+      return &buf_[next];
    }
 }
 
@@ -71,26 +71,26 @@ template<typename T>
 inline void TContiguousPool<T>::release(T const* item)
 {
    // TODO: Synchronized version lock here.
-   m_q.push(getItemIndex(item));
+   q_.push(getItemIndex(item));
 }
 
 template<typename T>
 inline int TContiguousPool<T>::getItemIndex(T const* item)
 {
-   return std::distance<T const*>(m_pBuf, item);
+   return std::distance<T const*>(buf_, item);
 }
 
 template<typename T>
 inline int TContiguousPool<T>::acquireNextIndex()
 {
-   if( m_q.count() == 0 )
+   if( q_.count() == 0 )
    {
       return -1;
    }
    else
    {
-      auto item = m_q.peek();
-      m_q.pop();
+      auto item = q_.peek();
+      q_.pop();
       return item;
    };
 }

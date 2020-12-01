@@ -11,19 +11,11 @@ template <size_t Size>
 class TMessage : public IMessage
 {
 public:
-
-	// Inherited via IMessage
-	void build(int dest, int resp, int type, char* data, int size) override;
-
-	int sendTo() const override;
-	int replyTo() const override;
 	int type() const override;
-	int size() const override
-	{
-		return Size;
-	};
+	size_t size() const override;
 	void const* data() const override;
 
+	void build(int type, void const* data, size_t size) override;
 	//template<typename T, typename... Args>
 	//void construct(Args&&... args);
 	//{
@@ -33,44 +25,34 @@ public:
 	//	new (buffer) T(std::forward<Args>(args)...);
 	//}
 
-	short destAddr = 0;
-	short replyAddr = 0;
-	short messageType = 0;
-	char buffer[Size] = { 0 };
+
+	int type_ = 0;
+	char buffer_[Size] = { 0 };
 };
 
 template<size_t Size>
-inline void Actor::TMessage<Size>::build(int dest, int resp, int type, char* data, int size)
+inline size_t TMessage<Size>::size() const
 {
-	destAddr = dest;
-	replyAddr = resp;
-	messageType = type;
-	memset(buffer, 0x00, sizeof(buffer));
-	memcpy_s(buffer, sizeof(buffer), data, size);
-}
-
-template<size_t Size>
-inline int TMessage<Size>::sendTo() const
-{
-	return destAddr;
-}
-
-template<size_t Size>
-inline int TMessage<Size>::replyTo() const
-{
-	return replyAddr;
+	return Size;
 }
 
 template<size_t Size>
 inline int TMessage<Size>::type() const
 {
-	return messageType;
+	return type_;
 }
 
 template<size_t Size>
 inline void const* TMessage<Size>::data() const
 {
-	return buffer;
+	return buffer_;
 }
 
+template<size_t Size>
+inline void Actor::TMessage<Size>::build(int type, void const* data, size_t size)
+{
+	type_ = type;
+	memset(buffer_, 0x00, sizeof(buffer_));
+	memcpy_s(buffer_, sizeof(buffer_), data, size);
+}
 }

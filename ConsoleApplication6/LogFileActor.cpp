@@ -16,5 +16,5 @@ void LogFileActor::handleMessage(Actor::IMessage const* msg)
 	std::string sz(static_cast<char const*>(msg->data()), msg->size());
 	std::cout << "[LogFileActor] " << sz << '\n';
 
-	file << std::string((char*)msg->data(), msg->size()) << '\n';
+	file << sz << '\n';
 }

@@ -2,8 +2,14 @@
 
 namespace Actor
 {
-MessagePtr MessagePool::acquire(size_t size)
+IMessage* MessagePool::acquire(size_t size)
 {
-	return m_pool.acquire(size);
+	return pool_.acquire(size);
+}
+
+void 
+MessagePool::release(IMessage const* msg)
+{
+	pool_.release(msg, msg->size());
 }
 }

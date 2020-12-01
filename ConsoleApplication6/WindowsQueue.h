@@ -1,7 +1,7 @@
 #pragma once
 #include "IActorQueue.h"
 #include "TStaticQueue.h"
-#include "MessagePtr.h"
+#include "MessageHandle.h"
 
 #include <mutex>
 #include <condition_variable>
@@ -11,14 +11,13 @@ class WindowsQueue : public Actor::IActorQueue
 {
 public:
 	// Inherited via IActorQueue
-	virtual void putMessage(Actor::MessagePtr msg) override;
-	virtual Actor::MessagePtr getMessage() override;
+	virtual void putMessage(Actor::MessageHandle msg) override;
+	virtual Actor::MessageHandle getMessage() override;
 
 private:
 	std::condition_variable m_signal;
 	std::mutex m_mutex;
 
-	std::vector<Actor::MessagePtr> m_q;
-	//TStaticQueue<Actor::IMessage*, 10> m_q;
+	std::vector<Actor::MessageHandle> q_;
 };
 

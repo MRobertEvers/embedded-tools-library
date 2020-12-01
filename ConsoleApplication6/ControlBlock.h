@@ -1,29 +1,31 @@
 #pragma once
+#include "IControlBlock.h"
+
 namespace Pool::Managed
 {
-class ControlBlock
+class ControlBlock : public IControlBlock
 {
 public:
 	int incRef()
 	{
-		return ++m_count;
+		return ++count_;
 	};
 
 	int decRef()
 	{
-		if( m_count > 0 )
+		if( count_ > 0 )
 		{
-			m_count -= 1;
+			count_ -= 1;
 		}
-		return m_count;
+		return count_;
 	};
 
 	int count()
 	{
-		return m_count;
+		return count_;
 	}
 private:
-	unsigned short m_count = 0;
+	unsigned short count_ = 0;
 };
 
 }
