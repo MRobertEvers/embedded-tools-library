@@ -9,7 +9,7 @@ class TContiguousPoolBuffer
 {
 public:
    std::array<T, Size> buffer;
-   std::array<int, Size> control = { 0 };
+   std::array<int, Size> control;
 };
 
 }
