@@ -16,6 +16,7 @@ public:
 
 	virtual ~TStaticContiguousPool(){ }
 private:
+	// CAREFUL! These members are initialized AFTER the base class (which may modify this buffer)
 	Resource::TContiguousPoolBuffer<T, Size> buffer;
 };
 }
