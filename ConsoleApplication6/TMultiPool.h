@@ -13,7 +13,7 @@ class TMultiPool : public IMultiPool<T>
 public:
 	template <size_t Size>
 	TMultiPool(std::array<IMultiPoolSource<T>*, Size>* sources)
-		: m_sources(sources->data()), m_sourcesLen(Size)
+		: sources_(sources->data()), sourcesLen_(Size)
 	{
 		// Sort smallest first
 		std::sort(
@@ -28,11 +28,11 @@ public:
 
 	virtual T* acquire(size_t size) override
 	{
-		for( size_t i = 0; i < m_sourcesLen; ++i )
+		for( size_t i = 0; i < sourcesLen_; ++i )
 		{
-			if( size <= m_sources[i]->objectSize() )
+			if( size <= sources_[i]->objectSize() )
 			{
-				return m_sources[i]->acquire();
+				return sources_[i]->acquire();
 			}
 		}
 
@@ -41,18 +41,18 @@ public:
 
 	virtual void release(T const* item, size_t size) override
 	{
-		for( size_t i = 0; i < m_sourcesLen; ++i )
+		for( size_t i = 0; i < sourcesLen_; ++i )
 		{
-			if( size <= m_sources[i]->objectSize() )
+			if( size <= sources_[i]->objectSize() )
 			{
-				return m_sources[i]->release(item);
+				return sources_[i]->release(item);
 			}
 		}
 	};
 
 private:
-	IMultiPoolSource<T>** m_sources;
-	size_t m_sourcesLen;
+	IMultiPoolSource<T>** sources_;
+	size_t sourcesLen_;
 };
 }
 

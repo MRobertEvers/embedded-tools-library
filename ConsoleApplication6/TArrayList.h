@@ -26,7 +26,7 @@ public:
 		{
 			auto newItem = available.pop();
 
-			void* buffer = &m_buf[newItem];
+			void* buffer = &buf_[newItem];
 			new (buffer) T(std::forward<Args>(args)...);
 			order[size_] = newItem;
 
@@ -41,7 +41,7 @@ public:
 			return nullptr;
 		}
 
-		return &m_buf[order[i]];
+		return &buf_[order[i]];
 	}
 
 	T* operator[](int i)
@@ -75,7 +75,7 @@ public:
 			memmove(order + i, order + i + 1, size_ - i - 1);
 		}
 
-		auto item = &m_buf[removed];
+		auto item = &buf_[removed];
 		item->T::~T();
 
 		available.push(removed);
@@ -100,7 +100,7 @@ private:
 		std::array<int, Size>* stackBuf, 
 		std::array<int, Size>* listBuf
 	)
-		: m_buf(reinterpret_cast<T*>(memory->buffer.data())), 
+		: buf_(reinterpret_cast<T*>(memory->buffer.data())), 
 		available(stackBuf->data(), stackBuf->size()), 
 		order(listBuf->data()), size_(0)
 	{
@@ -111,7 +111,7 @@ private:
 		}
 	};
 
-	T* m_buf;
+	T* buf_;
 	TQueue<int> available;
 	// Keep a list of pointers to T*s 
 	int* order;

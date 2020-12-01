@@ -3,23 +3,23 @@
 
 void WindowsQueue::putMessage(Actor::MessageHandle msg)
 {
-   std::unique_lock lock(m_mutex);
+   std::unique_lock lock(mutex_);
 
    if( q_.size() < 10 )
    {
       q_.push_back(msg);
-      m_signal.notify_one();
+      signal_.notify_one();
    }
 }
 
 Actor::MessageHandle WindowsQueue::getMessage()
 {
-   std::unique_lock lock(m_mutex);
+   std::unique_lock lock(mutex_);
 
    while( q_.size() == 0 )
    {
       // release lock as long as the wait and reaquire it afterwards.
-      m_signal.wait(lock);
+      signal_.wait(lock);
    }
 
    auto item = q_.back();

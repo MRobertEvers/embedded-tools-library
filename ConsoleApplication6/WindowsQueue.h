@@ -15,8 +15,8 @@ public:
 	virtual Actor::MessageHandle getMessage() override;
 
 private:
-	std::condition_variable m_signal;
-	std::mutex m_mutex;
+	std::condition_variable signal_;
+	std::mutex mutex_;
 
 	std::vector<Actor::MessageHandle> q_;
 };

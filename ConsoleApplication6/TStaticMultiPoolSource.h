@@ -10,22 +10,22 @@ class TStaticMultiPoolSource : public IMultiPoolSource<Interface>
 public:
 	virtual Interface* acquire() override
 	{
-		return m_pool.acquire();
+		return pool_.acquire();
 	};
 
 	virtual void release(Interface const* item) override
 	{
-		return m_pool.release(static_cast<T const*>(item));
+		return pool_.release(static_cast<T const*>(item));
 	};
 
 	virtual int size() override
 	{
-		return m_pool.size();
+		return pool_.size();
 	};
 
 	virtual int numAvailable() override
 	{
-		return m_pool.numAvailable();
+		return pool_.numAvailable();
 	};
 
 	virtual size_t objectSize() override
@@ -33,7 +33,7 @@ public:
 		return SizeT;
 	};
 private:
-	TStaticContiguousPool<T, Size> m_pool;
+	TStaticContiguousPool<T, Size> pool_;
 };
 }
 

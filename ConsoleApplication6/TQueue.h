@@ -26,19 +26,19 @@ public:
 private:
    T* buf_;
    int size_ = 0;
-   int m_head = 0;
-   int m_tail = 0;
-   bool m_isFull = false;
+   int head_ = 0;
+   int tail_ = 0;
+   bool isFull_ = false;
 };
 
 template<typename T>
 bool TQueue<T>::push(const T& item)
 {
-   if( !m_isFull )
+   if( !isFull_ )
    {
-      buf_[m_head] = item;
-      m_head = (m_head + 1) % size_;
-      m_isFull = m_head == m_tail;
+      buf_[head_] = item;
+      head_ = (head_ + 1) % size_;
+      isFull_ = head_ == tail_;
 
       return true;
    }
@@ -49,13 +49,13 @@ bool TQueue<T>::push(const T& item)
 template<typename T>
 T TQueue<T>::pop()
 {
-   auto item = buf_[m_tail];
+   auto item = buf_[tail_];
 
-   if( m_isFull || m_head != m_tail )
+   if( isFull_ || head_ != tail_ )
    {
-      m_isFull = false;
+      isFull_ = false;
 
-      m_tail = (m_tail + 1) % size_;
+      tail_ = (tail_ + 1) % size_;
    }
 
    return item;
@@ -64,12 +64,12 @@ T TQueue<T>::pop()
 template<typename T>
 inline size_t TQueue<T>::count()
 {
-   if( m_head >= m_tail )
+   if( head_ >= tail_ )
    {
-      return m_isFull ? size_ : (m_head - m_tail);
+      return isFull_ ? size_ : (head_ - tail_);
    }
    else
    {
-      return size_ - (m_tail - m_head);
+      return size_ - (tail_ - head_);
    }
 }
