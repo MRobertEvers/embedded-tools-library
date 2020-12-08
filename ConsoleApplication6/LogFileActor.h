@@ -1,7 +1,8 @@
 #pragma once
-#include "ActorModel.h"
+#include "BaseActor.h"
+#include "IRouter.h"
 
-class LogFileActor : public Actor::ActorModel
+class LogFileActor : public BaseActor
 {
 public:
 	LogFileActor(Actor::IActorQueue* q) : Actor::ActorModel(q)

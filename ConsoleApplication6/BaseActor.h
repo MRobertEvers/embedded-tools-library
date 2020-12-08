@@ -1,12 +1,10 @@
 #pragma once
 #include "IActorQueue.h"
 
-namespace Actor
-{
-class ActorModel
+class BaseActor : public Actor::IRouter
 {
 public:
-	ActorModel(IActorQueue* q) : q_(q)
+	BaseActor(IActorQueue* q) : q_(q)
 	{
 
 	}
@@ -31,5 +29,4 @@ protected:
 private:
 	IActorQueue* q_;
 };
-}
 
