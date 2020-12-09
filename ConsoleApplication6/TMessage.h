@@ -5,41 +5,62 @@
 
 #include <cstring>
 
-namespace Actor
-{
-template <size_t Size>
-class TMessage : public IMessage
+class IDataMessage : public Actor::IMessage
 {
 public:
-	int type() const override;
-	size_t size() const override;
-	void const* data() const override;
+	IDataMessage(Actor::MessageType type) : Actor::IMessage(type) { }
 
-	void build(int type, void const* data, size_t size) override;
-	//template<typename T, typename... Args>
-	//void construct(Args&&... args);
-	//{
-	//	static_assert(std::is_trivially_destructible<T>::value);
-	//	static_assert(sizeof(T) <= Size);
-
-	//	new (buffer) T(std::forward<Args>(args)...);
-	//}
-
-
-	int type_ = 0;
-	char buffer_[Size] = { 0 };
+	virtual size_t size() const = 0;
+	virtual void const* data() const = 0;
 };
+
+template <size_t Size>
+class TMessage : public IDataMessage
+{
+public:
+	TMessage(Actor::MessageType type) : IDataMessage(type), refCnt_(0), srcId_(0) { }
+
+	char buffer_[Size] = { 0 };
+
+	virtual size_t size() const override;
+	virtual void const* data() const override;
+
+	void build(void const* data, size_t dataSize);
+
+protected:
+	virtual void acquire() const override;
+	virtual void release() const override;
+
+	unsigned char srcId_;
+	mutable unsigned char refCnt_;
+
+public:
+	static TMessage<Size> make_message(void const* data, size_t dataSize);
+};
+
+template<size_t Size>
+inline void TMessage<Size>::acquire() const
+{
+	refCnt_++;
+}
+
+template<size_t Size>
+inline void TMessage<Size>::release() const
+{
+	if( refCnt_ > 0 )
+	{
+		refCnt_--;
+		if( refCnt_ == 0 )
+		{
+			// TODO:
+		}
+	}
+}
 
 template<size_t Size>
 inline size_t TMessage<Size>::size() const
 {
 	return Size;
-}
-
-template<size_t Size>
-inline int TMessage<Size>::type() const
-{
-	return type_;
 }
 
 template<size_t Size>
@@ -49,10 +70,18 @@ inline void const* TMessage<Size>::data() const
 }
 
 template<size_t Size>
-inline void Actor::TMessage<Size>::build(int type, void const* data, size_t size)
+inline void TMessage<Size>::build(void const* data, size_t dataSize)
 {
-	type_ = type;
-	memset(buffer_, 0x00, sizeof(buffer_));
-	memcpy_s(buffer_, sizeof(buffer_), data, size);
+	*this = make_message(data, dataSize);
 }
+
+template<size_t Size>
+inline TMessage<Size> TMessage<Size>::make_message(void const* data, size_t size)
+{
+	TMessage<Size> msg{ 2 };
+
+	memset(msg.buffer_, 0x00, sizeof(msg.buffer_));
+	memcpy_s(msg.buffer_, sizeof(msg.buffer_), data, size);
+
+	return msg;
 }

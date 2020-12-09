@@ -1,21 +1,12 @@
 #pragma once
-#include "ActorModel.h"
-#include "Dispatcher.h"
+#include "IActor.h"
 
-class CLIActor : public Actor::ActorModel 
+class CLIActor : public Actor::IActor
 {
 public:
-	CLIActor(Actor::IActorQueue* q, Actor::Dispatcher* disp) : Actor::ActorModel(q), dispatcher(disp)
-	{
-
-	}
-
-	bool subscribed(int msgType);
-
-protected:
-	void handleMessage(Actor::IMessage const* msg);
-
-private:
-	Actor::Dispatcher* dispatcher;
+	CLIActor(Actor::IActorQueue* q) : Actor::IActor(q) { }
+	// Inherited via IActor
+	virtual bool handle_accepts(Actor::IMessage const* const msg) const override;
+	virtual void handle_process_one(Actor::IMessage const* const msg) override;
 };
 

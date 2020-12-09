@@ -144,30 +144,26 @@
     <ClCompile Include="CLIActor.cpp" />
     <ClCompile Include="ConsoleApplication6.cpp" />
     <ClCompile Include="Dispatcher.cpp" />
-    <ClCompile Include="LogFileActor.cpp" />
-    <ClCompile Include="MessageHandle.cpp" />
-    <ClCompile Include="MessagePool.cpp" />
     <ClCompile Include="scratch.cpp" />
+    <ClCompile Include="send_message.cpp" />
     <ClCompile Include="WindowsQueue.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ActorModel.h" />
     <ClInclude Include="CLIActor.h" />
     <ClInclude Include="Dispatcher.h" />
+    <ClInclude Include="IActor.h" />
     <ClInclude Include="IActorQueue.h" />
     <ClInclude Include="IControlBlock.h" />
     <ClInclude Include="IMessage.h" />
-    <ClInclude Include="IMessagePool.h" />
     <ClInclude Include="IMultiPool.h" />
     <ClInclude Include="IMultiPoolSource.h" />
     <ClInclude Include="IPool.h" />
     <ClInclude Include="IQueue.h" />
+    <ClInclude Include="IRouter.h" />
     <ClInclude Include="IStack.h" />
-    <ClInclude Include="LogFileActor.h" />
     <ClInclude Include="make_array.h" />
-    <ClInclude Include="MessageHandle.h" />
-    <ClInclude Include="MessagePool.h" />
     <ClInclude Include="scratch.h" />
+    <ClInclude Include="send_message.h" />
     <ClInclude Include="TArrayList.h" />
     <ClInclude Include="TArrayListBuffer.h" />
     <ClInclude Include="TAlignedBuffer.h" />

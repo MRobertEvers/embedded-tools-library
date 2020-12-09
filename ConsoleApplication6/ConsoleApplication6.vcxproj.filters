@@ -51,22 +51,16 @@
     <ClCompile Include="WindowsQueue.cpp">
       <Filter>Source Files\Actor</Filter>
     </ClCompile>
+    <ClCompile Include="scratch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="send_message.cpp">
+      <Filter>Source Files\Actor</Filter>
+    </ClCompile>
     <ClCompile Include="Dispatcher.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="CLIActor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="scratch.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="LogFileActor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MessagePool.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MessageHandle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -104,12 +98,6 @@
     <ClInclude Include="IStack.h">
       <Filter>Header Files\Stack</Filter>
     </ClInclude>
-    <ClInclude Include="Dispatcher.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CLIActor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="TArrayList.h">
       <Filter>Header Files\List</Filter>
     </ClInclude>
@@ -118,12 +106,6 @@
     </ClInclude>
     <ClInclude Include="IMessage.h">
       <Filter>Header Files\Actor</Filter>
-    </ClInclude>
-    <ClInclude Include="TMessage.h">
-      <Filter>Header Files\Actor</Filter>
-    </ClInclude>
-    <ClInclude Include="LogFileActor.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="TArrayListBuffer.h">
       <Filter>Header Files\List</Filter>
@@ -149,26 +131,32 @@
     <ClInclude Include="make_array.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="IMessagePool.h">
-      <Filter>Header Files\Actor</Filter>
-    </ClInclude>
-    <ClInclude Include="MessagePool.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ActorModel.h">
-      <Filter>Header Files\Actor</Filter>
-    </ClInclude>
     <ClInclude Include="TSharedPoolPtr.h">
       <Filter>Header Files\Pool\Managed</Filter>
-    </ClInclude>
-    <ClInclude Include="MessageHandle.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="IControlBlock.h">
       <Filter>Header Files\Pool\Managed</Filter>
     </ClInclude>
     <ClInclude Include="TStaticArrayList.h">
       <Filter>Header Files\List</Filter>
+    </ClInclude>
+    <ClInclude Include="TMessage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IRouter.h">
+      <Filter>Header Files\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="send_message.h">
+      <Filter>Header Files\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="Dispatcher.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IActor.h">
+      <Filter>Header Files\Actor</Filter>
+    </ClInclude>
+    <ClInclude Include="CLIActor.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

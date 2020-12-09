@@ -1,7 +1,6 @@
 #include "WindowsQueue.h"
 
-
-void WindowsQueue::putMessage(Actor::MessageHandle msg)
+void WindowsQueue::handle_put_message(Actor::IMessage const* msg)
 {
    std::unique_lock lock(mutex_);
 
@@ -12,7 +11,7 @@ void WindowsQueue::putMessage(Actor::MessageHandle msg)
    }
 }
 
-Actor::MessageHandle WindowsQueue::getMessage()
+Actor::IMessage const* WindowsQueue::handle_get_message()
 {
    std::unique_lock lock(mutex_);
 

@@ -26,15 +26,15 @@ void arraylist()
 
 void multipool()
 {
-   Pool::TStaticMultiPoolSource<Actor::IMessage, Actor::TMessage<4>, 120, 4> smallpool;
-   Pool::TStaticMultiPoolSource<Actor::IMessage, Actor::TMessage<16>, 120, 16> medpool;
-   auto arr = make_array<Pool::IMultiPoolSource<Actor::IMessage>*>(&smallpool, &medpool);
+   //Pool::TStaticMultiPoolSource<Actor::IMessage, Actor::TMessage<4>, 120, 4> smallpool;
+   //Pool::TStaticMultiPoolSource<Actor::IMessage, Actor::TMessage<16>, 120, 16> medpool;
+   //auto arr = make_array<Pool::IMultiPoolSource<Actor::IMessage>*>(&smallpool, &medpool);
 
-   Pool::TMultiPool<Actor::IMessage> mpool(&arr);
+   //Pool::TMultiPool<Actor::IMessage> mpool(&arr);
 
-   Actor::IMessage* p = mpool.acquire(8);
+   //Actor::IMessage* p = mpool.acquire(8);
 
-   mpool.release(p, 8);
+   //mpool.release(p, 8);
 }
 
 void scratch()
