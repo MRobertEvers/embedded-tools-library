@@ -1,7 +1,0 @@
-/mnt/c/Users/Matthew/Documents/GitHub/noch/CMakeFiles/rebuild_cache.dir
-/mnt/c/Users/Matthew/Documents/GitHub/noch/CMakeFiles/Main.dir
-/mnt/c/Users/Matthew/Documents/GitHub/noch/CMakeFiles/edit_cache.dir
-/mnt/c/Users/Matthew/Documents/GitHub/noch/src/CMakeFiles/rebuild_cache.dir
-/mnt/c/Users/Matthew/Documents/GitHub/noch/src/CMakeFiles/edit_cache.dir
-/mnt/c/Users/Matthew/Documents/GitHub/noch/src/windows/CMakeFiles/rebuild_cache.dir
-/mnt/c/Users/Matthew/Documents/GitHub/noch/src/windows/CMakeFiles/edit_cache.dir
