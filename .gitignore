@@ -282,7 +282,7 @@ __pycache__/
 ./vs
 ./vscode
 ./Debug
-./build/*
+build
 ./Release
 */CMakeFiles
 *Makefile
