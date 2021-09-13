@@ -288,3 +288,4 @@ build
 *Makefile
 cmake_install.cmake
 gcc
+out
