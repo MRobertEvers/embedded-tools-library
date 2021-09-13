@@ -274,3 +274,16 @@ __pycache__/
 # tools/**
 # !tools/packages.config
 /Files
+
+# CMake
+./build
+
+# VSCode
+./vs
+./vscode
+./Debug
+./Release
+*/CMakeFiles
+*Makefile
+cmake_install.cmake
+
