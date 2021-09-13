@@ -1,5 +1,5 @@
 #include "LogFileActor.h"
-#include "IDataMessage.h"
+#include "IPoolMessage.h"
 
 #include <string>
 #include <fstream>
@@ -16,7 +16,7 @@ LogFileActor::handle_process_one(pvt::IMessage const* const msg)
 {
 
 
-	auto evt = static_cast<pvt::IDataMessage const*>(msg);
+	auto evt = static_cast<pvt::IPoolMessage const*>(msg);
 
 	std::ofstream file("dump.txt");
 

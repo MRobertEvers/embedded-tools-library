@@ -1,6 +1,6 @@
 #include "CLIActor.h"
-#include "IDataMessage.h"
 #include "send_message.h"
+#include "IPoolMessage.h"
 #include <iostream>
 
 bool
@@ -18,7 +18,7 @@ CLIActor::handle_process_one(pvt::IMessage const* const m)
 		return;
 	}
 
-	auto msg = static_cast<pvt::IDataMessage const*>(m);
+	auto msg = static_cast<pvt::IPoolMessage const*>(m);
 
 	std::string sz(static_cast<char const*>(msg->data()), msg->size());
 

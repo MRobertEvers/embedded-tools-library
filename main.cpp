@@ -42,9 +42,9 @@ Dispatcher<10> g_dispatcher{};
 DefaultTimerDispatch g_default_timer_dispatch{&g_dispatcher};
 TimerModule<std::mutex> g_timer{&g_default_timer_dispatch};
 
-#include "CLIActor.h"
-#include "LogFileActor.h"
-#include "WindowsMessageQueue.h"
+#include "windows/CLIActor.h"
+#include "windows/LogFileActor.h"
+#include "windows/WindowsMessageQueue.h"
 
 #include <chrono>
 

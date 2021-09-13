@@ -10,6 +10,10 @@ mkdir ./build
 
 # Generate the build files on windows
 cmake -S . -B ./build
+
+# On WSL
+cd ./build
+cmake -B . ..
 ```
 
 ## Notes
